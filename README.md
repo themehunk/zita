@@ -1,2 +1,0 @@
-# zita
-Zita Free Themes
