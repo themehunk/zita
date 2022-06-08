@@ -534,7 +534,7 @@ if ( ! class_exists( 'Zita_Admin_Settings' ) ){
 						?>
 					</p>
 					<?php
-						$zita_support_link       = apply_filters( 'zita_support_link', zita_get_pro_url( 'https://wpzita.com/help/', 'submit-a-ticket', 'welcome-page' ) );
+						$zita_support_link       = apply_filters( 'zita_support_link', zita_get_pro_url( 'https://themehunk.com/contact-us/', 'submit-a-ticket', 'welcome-page' ) );
 						$zita_support_link_text  = apply_filters( 'zita_support_link_text', __( 'Submit a Ticket', 'zita' ) );
 
 						printf(

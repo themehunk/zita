@@ -122,3 +122,8 @@ border: none;
 margin-right:2%;
 }
 .notice.zita-notice{border-left: 4px solid #f7a53e; position: relative;}
+
+
+.notice.th-notice-slide-wrapper,.notice.e-notice.e-notice--dismissible.e-notice--extended {
+    display: none !important;
+}
