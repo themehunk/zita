@@ -3,7 +3,7 @@ Contributors: wpzita
 Tags: two-columns, right-sidebar, custom-menu, custom-background, editor-style, translation-ready, full-width-template, flexible-header, sticky-post, theme-options, one-column, e-commerce, blog, photography, threaded-comments, custom-colors
 Requires at least: 5.0
 Tested up to: 6.0
-Stable tag: 1.5.6
+Stable tag: 1.5.7
 License: GPLv3 or later
 License URL: https://www.gnu.org/licenses/gpl-3.0.en.html
 
@@ -68,6 +68,9 @@ Yes our theme supports builder
 Yes, this theme is tested with latest version of WordPress, you can use it for your site.
 
 == Changelog ==
+
+= 1.5.7=
+* Theme tested With WordPress 6.1.
 
 = 1.5.6=
 * Style issue fixd.
@@ -275,5 +278,5 @@ Initial release
 
 == Upgrade Notice ==
 
-= 1.5.3=
-* HTML markup issue resolved.
+= 1.5.7=
+* Theme tested With WordPress 6.1.
