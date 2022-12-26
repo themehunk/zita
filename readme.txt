@@ -2,7 +2,7 @@
 Contributors: wpzita
 Tags: two-columns, right-sidebar, custom-menu, custom-background, editor-style, translation-ready, full-width-template, flexible-header, sticky-post, theme-options, one-column, e-commerce, blog, photography, threaded-comments, custom-colors
 Requires at least: 5.0
-Tested up to: 6.0
+Tested up to: 6.1
 Stable tag: 1.5.7
 License: GPLv3 or later
 License URL: https://www.gnu.org/licenses/gpl-3.0.en.html
