@@ -85,7 +85,7 @@ $zita_heading_text_transform = get_theme_mod('zita_heading_text_transform');
 $zita_heading_font_weight = get_theme_mod('zita_heading_font_weight');
 if(!empty($zita_heading_font)){
 zita_enqueue_google_font($zita_heading_font);
-$zita_typography_style.=".woocommerce .page-title,h2.widget-title,.site-title span,h2.entry-title,h2.entry-title a,h1.entry-title,h2.comments-title,h3.comment-reply-title,h4.author-header,.zita-related-post h3,#content.blog-single .zita-related-post ul li h3 a,h3.widget-title,.woocommerce ul.products li.product .woocommerce-loop-product__title, .woocommerce-page ul.products li.product .woocommerce-loop-product__title,.woocommerce h1.product_title, .woocommerce-Tabs-panel h2, .related.products h2, section.up-sells h2, .cross-sells h2, .cart_totals h2, .woocommerce-billing-fields h3, .woocommerce-account .addresses .title h3{ 
+$zita_typography_style.=".woocommerce .page-title,h2.widget-title,.site-title span,h2.entry-title,h2.entry-title a,h1.entry-title,h2.comments-title,h3.comment-reply-title,h4.author-header,.zita-related-post h3,#content.blog-single .zita-related-post ul li h3 a,h3.widget-title,.woocommerce ul.products li.product .woocommerce-loop-product__title, .woocommerce-page ul.products li.product .woocommerce-loop-product__title,.woocommerce h1.product_title, .woocommerce-Tabs-panel h2, .related.products h2, section.up-sells h2, .cross-sells h2, .cart_totals h2, .woocommerce-billing-fields h3, .woocommerce-account .addresses .title h3,.wp-block-group__inner-container h2{ 
    font-family:{$zita_heading_font};
    text-transform:{$zita_heading_text_transform};
    font-weight:{$zita_heading_font_weight};
