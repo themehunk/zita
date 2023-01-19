@@ -293,3 +293,6 @@ if ( ! function_exists( 'wp_body_open' ) ) {
  * Load init.
  */
 require_once trailingslashit( get_template_directory()).'inc/init.php';
+
+// Add block patterns
+require get_template_directory() . '/block-pattern.php';
