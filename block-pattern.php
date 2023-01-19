@@ -50,7 +50,8 @@
 		'pricing',
 		'service',
 		'about',
-		'testimonials'
+		'testimonials',
+		'brand'
 	);
 
 	if (class_exists('WooCommerce')) {
