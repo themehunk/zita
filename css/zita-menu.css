@@ -62,7 +62,7 @@
     display: inline-block;
 }
 .zita-menu li ul.sub-menu li > a > .arrow:before {
-    content: "\f105" !important;
+    content: "\f105";
 }
 .zita-menu > li > ul.sub-menu {
     display: none;
@@ -749,6 +749,10 @@ display:block;
 /*end hamburger menu*/
 /****************************/
 @media screen and (max-width: 1024px){
+    .zita-menu li,
+    .zita-menu a{
+        position: relative;
+    }
 .mhdfull .top-header .menu-toggle,
 .mhdfull .bottom-header .menu-toggle{
 display:block!important;
@@ -811,9 +815,10 @@ display: -webkit-inline-box;
         padding-right: 10px;
         color: #FF5737;
     }
-    .zita-menu > li > a > .arrow:before {
+    .zita-menu > li > a > .arrow:before,
+    .zita-menu.collapse > li > ul.sub-menu li > a > .arrow:before {
         float: right;
-        content: "\f105";
+        content: "\f107";
     }
 .sider.left .zita-menu > li, .sider.right .zita-menu > li {
     border-bottom: 1px solid #eee;
@@ -835,7 +840,7 @@ padding-right:15px;
     background: none;
 }
     li.menu-active > a > .arrow:before {
-        content: "\f107" !important;
+        content: "\f106";
     }
     .zita-menu li ul.sub-menu > li {
         width: 100%;
@@ -856,7 +861,7 @@ padding-right:15px;
         position: static;
     }
     .zita-menu li ul.sub-menu li.menu-active > a > .arrow:before {
-        content: "\f107" !important;
+        content: "\f106";
     }
   .zita-menu > li > a,.top-header-bar .zita-menu > li > a, 
     .bottom-header-bar .zita-menu > li > a {
