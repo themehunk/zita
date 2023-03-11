@@ -71,6 +71,7 @@ Yes, this theme is tested with latest version of WordPress, you can use it for y
 
 = 1.5.9 =
 * Mobile Menu style issue resolved.
+* Typography Added in block editor.
 
 = 1.5.8=
 * Block Pattern Added.
@@ -286,3 +287,4 @@ Initial release
 
 = 1.5.9 =
 * Mobile Menu style issue resolved.
+* Typography Added in block editor.

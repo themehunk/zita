@@ -137,6 +137,55 @@
 		},
 		"typography": {
 			"customFontSize": true,
+			"fontFamilies": [
+				{
+					"fontFace": [
+						{
+							"fontDisplay": "block",
+							"fontFamily": "Catamaran",
+							"fontStretch": "normal",
+							"fontStyle": "normal",
+							"fontWeight": "400",
+							"src": [
+								"file:./third-party/fonts/Catamaran-Regular.ttf"
+							]
+						},
+						{
+							"fontDisplay": "block",
+							"fontFamily": "Catamaran",
+							"fontStretch": "normal",
+							"fontStyle": "normal",
+							"fontWeight": "500",
+							"src": [
+								"file:./third-party/fonts/Catamaran-Medium.ttf"
+							]
+						},
+						{
+							"fontDisplay": "block",
+							"fontFamily": "Catamaran",
+							"fontStretch": "normal",
+							"fontStyle": "normal",
+							"fontWeight": "600",
+							"src": [
+								"file:./third-party/fonts/Catamaran-SemiBold.ttf"
+							]
+						},
+						{
+							"fontDisplay": "block",
+							"fontFamily": "Catamaran",
+							"fontStretch": "normal",
+							"fontStyle": "normal",
+							"fontWeight": "700",
+							"src": [
+								"file:./third-party/fonts/Catamaran-Bold.ttf"
+							]
+						}
+					],
+					"fontFamily": "Catamaran, serif",
+					"name": "Catamaran",
+					"slug": "catamaran"
+				}
+			],
 			"fontSizes": [
 				{
 					"name": "Tiny",
