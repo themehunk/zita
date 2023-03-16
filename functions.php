@@ -27,6 +27,19 @@ define( 'ZITA_THEME_SETTINGS', 'zita-settings' );
 		 * Make theme available for translation.
 		 */
 		load_theme_textdomain( 'zita' );
+
+		add_theme_support( 'wp-block-styles' );
+
+		add_theme_support( 'align-wide' );
+
+		add_theme_support( 'editor-styles' );
+
+		add_editor_style( 'editor.css' );
+
+		add_theme_support( 'responsive-embeds' );
+
+		add_theme_support( 'custom-spacing' );
+
 		// Add default posts and comments RSS feed links to head.
 		add_theme_support( 'automatic-feed-links' );
 		/*
