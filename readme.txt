@@ -70,7 +70,7 @@ Yes, this theme is tested with latest version of WordPress, you can use it for y
 == Changelog ==
 
 = 1.6.0 =
-Update: Style Improved.
+Update: Search & other Style Improved.
 
 = 1.5.9 =
 * Mobile Menu style issue resolved.
