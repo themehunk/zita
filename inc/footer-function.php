@@ -216,8 +216,18 @@ if ( ! function_exists( 'zita_bottom_footer_conetnt_col1' ) ){
 function zita_bottom_footer_conetnt_col1($content){ ?>
 <?php if($content=='text'){?>
 <div class='content-html'>
-  <?php if(esc_html(get_theme_mod('zita_footer_bottom_col1_texthtml'))!==''){ 
-   echo esc_html(get_theme_mod('zita_footer_bottom_col1_texthtml'));
+  <?php 
+  $allowed_html = array(
+        'a' => array(
+            'href' => array(),
+            'title' => array()
+        ),
+        'br' => array(),
+        'em' => array(),
+        'strong' => array(),
+      );
+  if(esc_html(get_theme_mod('zita_footer_bottom_col1_texthtml'))!==''){ 
+   echo wp_kses(get_theme_mod('zita_footer_bottom_col1_texthtml'),$allowed_html);
  }else{?>
 <p class="footer-copyright">&copy;
               <?php
@@ -273,7 +283,17 @@ if ( ! function_exists( 'zita_bottom_footer_conetnt_col2' ) ){
 function zita_bottom_footer_conetnt_col2($content){ ?>
 <?php if($content=='text'){?>
 <div class='content-html'>
-  <?php echo esc_html(get_theme_mod('zita_bottom_footer_col2_texthtml',  __( 'Add your content here', 'zita' )));?>
+  <?php 
+    $allowed_html = array(
+        'a' => array(
+            'href' => array(),
+            'title' => array()
+        ),
+        'br' => array(),
+        'em' => array(),
+        'strong' => array(),
+      );
+  echo wp_kses(get_theme_mod('zita_bottom_footer_col2_texthtml',  __( 'Add your content here', 'zita' )),$allowed_html);?>
 </div>
 <?php }elseif($content=='menu'){
   if ( has_nav_menu('zita-btm-footer-menu' ) ) {?>
