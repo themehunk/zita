@@ -64,3 +64,8 @@
                 width:33.33%;
 
        }
+
+       #customize-control-zita_main_header_space.customize-control-radio-image label{
+        width: 100%;
+        max-width: 100%;
+       }

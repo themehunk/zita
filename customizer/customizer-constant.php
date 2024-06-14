@@ -38,3 +38,5 @@ define('ZITA_BLOG_ARCHIVE_LAYOUT_4', ZITA_THEME_URI. "customizer/images/blog-lay
 /**************************/
 define('ZITA_COLOR_SCHM_DRK', ZITA_THEME_URI. "customizer/images/dark-color-scheme.png");
 define('ZITA_COLOR_SCHM_DEF', ZITA_THEME_URI. "customizer/images/default-color-scheme.png");
+
+define('ZITA_MAINHEADER_PRO', ZITA_THEME_URI. "customizer/images/image.png");

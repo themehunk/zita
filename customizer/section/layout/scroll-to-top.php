@@ -14,7 +14,7 @@
                 'sanitize_callback' => 'zita_sanitize_checkbox',
             ) );
     $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'zita_scroll_to_top_disable', array(
-                'label'       => esc_html__('Disable Scroll To Top', 'zita'),
+                'label'       => esc_html__('Disable Scroll To Top (Pro)', 'zita'),
                 'type'        => 'checkbox',
                 'section'     => 'zita-scroll-to-top-section',
                 'settings'    => 'zita_scroll_to_top_disable',

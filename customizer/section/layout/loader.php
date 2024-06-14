@@ -12,7 +12,7 @@ $wp_customize->add_setting( 'zita_preloader_enable', array(
                 'sanitize_callback'     => 'zita_sanitize_checkbox',
             ) );
 $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'zita_preloader_enable', array(
-                'label'                 => esc_html__('Enable Loader', 'zita'),
+                'label'                 => esc_html__('Enable Loader (Pro)', 'zita'),
                 'type'                  => 'checkbox',
                 'section'               => 'zita-pre-loader',
                 'settings'              => 'zita_preloader_enable',

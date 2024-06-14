@@ -86,3 +86,15 @@ $wp_customize->add_control(new Zita_Misc_Control( $wp_customize, 'zita_hamburger
         'description' => sprintf( wp_kses(__( 'To know more Go with this <a target="_blank" href="%s">Doc</a> !', 'zita' ), array(  'a' => array( 'href' => array(),'target' => array() ) ) ), apply_filters('zita_doc_link', zita_get_pro_url( 'https://wpzita.com/docs/color-background', 'color-background' ) ) ),
         'priority'   => 30,
 )));
+
+// Pro Features Listing
+$wp_customize->add_setting('zita-pro-colorListing', array(
+    'sanitize_callback' => 'zita_sanitize_text',
+    ));
+$wp_customize->add_control(new Zita_Misc_Control( $wp_customize, 'zita-pro-colorListing',
+            array(
+        'section'     => 'zita-pro-colorSection',
+        'type'        => 'custom_message',
+        'description' => sprintf( wp_kses(__( 'To know more Go with this <a target="_blank" href="%s">Doc</a> !', 'zita' ), array(  'a' => array( 'href' => array(),'target' => array() ) ) ), apply_filters('zita_doc_link', zita_get_pro_url( 'https://wpzita.com/docs/above-footer/', 'above-footer' ) ) ),
+        'priority'   =>30,
+    )));

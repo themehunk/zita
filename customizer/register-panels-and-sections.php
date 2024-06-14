@@ -227,6 +227,12 @@ $wp_customize->add_section('zita-hamburger-color', array(
     'panel'    => 'zita-panel-color-background',
     'priority' => 2,
 ));
+
+$wp_customize->add_section('zita-pro-colorSection', array(
+    'title'    => __('Pro Colors Options', 'zita'),
+    'panel'    => 'zita-panel-color-background',
+    'priority' => 1,
+));
 /*********************/
 // Typography
 /*********************/
