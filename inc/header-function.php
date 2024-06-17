@@ -12,7 +12,7 @@
 /***************************/
 if ( ! function_exists( 'zita_minbar_header_markup' ) ){
 function zita_minbar_header_markup(){ 
-$zita_main_header_layout = get_theme_mod('zita_main_header_layout'); 
+$zita_main_header_layout = get_theme_mod('zita_main_header_layout','mhdrleft'); 
 if($zita_main_header_layout=='mhdminbarleft'){
 $barlayout='leftminbar';
 }else{

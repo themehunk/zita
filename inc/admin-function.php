@@ -19,7 +19,7 @@ function zita_custom_logo() {
 }
 endif;
 function zita_header_menu_style(){
-          $zita_main_header_layout = get_theme_mod('zita_main_header_layout');
+          $zita_main_header_layout = get_theme_mod('zita_main_header_layout','mhdrleft');
         	if($zita_main_header_layout =='mhdrleftpan' || $zita_main_header_layout =='mhdrrightpan' || $zita_main_header_layout =='mhdminbarleft'|| $zita_main_header_layout =='mhdminbarright' || $zita_main_header_layout =='mhdminbarbtm'){
             $menustyle='accordion';
         	}else{

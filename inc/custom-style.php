@@ -274,13 +274,7 @@ $zita_style .=".single-post article.zita-article .entry-content p:first-child:fi
 //     .fullwidthcontained #content.site-content.blog-single #container{max-width:{$zita_sngle_cnt_widht}px;}";
 // endif;
   
-/******************************************/    
-// Woocommerce single product content width
-/******************************************/
-if((class_exists( 'WooCommerce' )) && (get_theme_mod('zita_single_product_content_width')=='custom')):
-    $zita_product_cnt_widht = get_theme_mod('zita_product_cnt_widht','1200');
-    $zita_style .=".single-product.woocommerce #content.site-content.product #container{max-width:{$zita_product_cnt_widht}px;}";
-endif;
+
 /************************/    
 // scroll to top button
 /************************/  

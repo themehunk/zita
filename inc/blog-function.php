@@ -411,10 +411,7 @@ function zita_blog_highlight_layout_class( $classes ){
 	        $zita_blog_layout = get_theme_mod( 'zita_blog_layout' );
 	        $zita_blog_grid_layout = get_theme_mod( 'zita_blog_grid_layout' );
 	        if($zita_blog_layout=='zta-blog-layout-1' || $zita_blog_grid_layout){
-            $zita_blog_highlight = get_theme_mod( 'zita_blog_highlight' );
-			if ( $zita_blog_highlight ) {
-				$classes = 'zta-blog-highlight';
-			}
+            
            }
 		    return $classes;	
 		}

@@ -12,7 +12,7 @@
 if(class_exists('Zita_WP_Customize_Control_Radio_Image')){
                $wp_customize->add_setting(
                'zita_bottom_footer_widget_layout', array(
-               'default'           => 'ft-wgt-none',
+               'default'           => 'ft-wgt-four',
                'sanitize_callback' => 'sanitize_text_field',
             )
         );
