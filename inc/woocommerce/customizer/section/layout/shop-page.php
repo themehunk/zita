@@ -26,8 +26,8 @@ $wp_customize->add_control( 'zita_woo_product_animation', array(
         'type'    => 'select',
         'choices'    => array(
         'none'            => __('None','zita'),
-        'zoom'            => __('Zoom','zita'),
-        'swap'            => __('Swap','zita'),         
+        'zoom'            => __('Zoom (Pro)','zita'),
+        'swap'            => __('Swap (Pro)','zita'),         
         ),
     ));
 //product stucture

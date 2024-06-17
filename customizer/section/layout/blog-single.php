@@ -21,7 +21,7 @@
         'type'    => 'select',
         'choices' => array(
         'defualt'    => __('Default','zita'),
-        'custom' => __('Custom','zita'),
+        'custom' => __('Custom (Pro)','zita'),
         ),
         'priority'   =>1,
     ));

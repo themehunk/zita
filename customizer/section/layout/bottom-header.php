@@ -19,7 +19,7 @@ if(class_exists('Zita_WP_Customize_Control_Radio_Image')){
 $wp_customize->add_control(
             new Zita_WP_Customize_Control_Radio_Image(
                 $wp_customize, 'zita_bottom_header_layout', array(
-                    'label'    => esc_html__( 'Layout', 'zita' ),
+                    'label'    => esc_html__( 'Layout (Pro) (Its features will work in Premium version)', 'zita' ),
                     'section'  => 'zita-bottom-header',
                     'choices'  => array(
                        'btm-none'   => array(
@@ -394,16 +394,39 @@ $wp_customize->add_control(
     }
 }
 
-/****************/
-//doc link
-/****************/
-$wp_customize->add_setting('zita_below_header_doc_learn_more', array(
+// Pro feature List
+
+if(class_exists('Zita_WP_Customize_Control_Radio_Image')){
+        $wp_customize->add_setting(
+            'zita_below_header_pro_list', array(
+                'default'           => 'headerPro',
+                'sanitize_callback' => 'sanitize_text_field',
+            )
+        );
+$wp_customize->add_control(
+            new Zita_WP_Customize_Control_Radio_Image(
+                $wp_customize, 'zita_below_header_pro_list', array(
+                    'label'    => esc_html__( 'Some More Pro Features', 'zita' ),
+                    'section'  => 'zita-bottom-header',
+                    'priority'   => 108,
+                    'choices'  => array(
+                        'headerPro'   => array(
+                            'url' => ZITA_ABOVEHEADER_PRO,
+                        ),       
+                    ),
+                )
+            )
+        );
+}
+
+
+$wp_customize->add_setting('zita_below_header_pro_more', array(
     'sanitize_callback' => 'zita_sanitize_text',
     ));
-$wp_customize->add_control(new Zita_Misc_Control( $wp_customize, 'zita_below_header_doc_learn_more',
+$wp_customize->add_control(new Zita_Misc_Control( $wp_customize, 'zita_below_header_pro_more',
             array(
         'section'     => 'zita-bottom-header',
         'type'        => 'custom_message',
-        'description' => sprintf( wp_kses(__( 'To know more Go with this <a target="_blank" href="%s">Doc</a> !', 'zita' ), array(  'a' => array( 'href' => array(),'target' => array() ) ) ), apply_filters('zita_doc_link', zita_get_pro_url( 'https://wpzita.com/docs/below-header/', 'below-header' ) )),
+        'description' => sprintf( wp_kses(__( 'Alot of pro features Menu Space , Sub Menu Space, Space Above Header <a target="_blank" href="%s">Get Pro </a> !', 'zita' ), array(  'a' => array( 'href' => array(),'target' => array() ) ) ), apply_filters('zita_pro_link', zita_get_pro_url( 'https://themehunk.com/zita-pro-wordpress-theme/' ) )),
          'priority'   =>50,
     )));

@@ -7,7 +7,6 @@ define('ZITA_MAINHEADER_LAYOUT_RIGHTPAN', ZITA_THEME_URI. "customizer/images/mnh
 define('ZITA_MAINHEADER_LAYOUT_LEFTPAN', ZITA_THEME_URI. "customizer/images/mnhdrleftpan.png");
 define('ZITA_MAINHEADER_LAYOUT_FULL', ZITA_THEME_URI. "customizer/images/mnhdrfull.png");
 define('ZITA_MAINHEADER_LAYOUT_MINBARLEFT', ZITA_THEME_URI. "customizer/images/left-min-bar.png");
-define('ZITA_MAINHEADER_LAYOUT_MINBARRIGHT', ZITA_THEME_URI. "customizer/images/right-minbar.png");
 define('ZITA_HEADER_LAYOUT_1', ZITA_THEME_URI. "customizer/images/header-layout-1.png");
 
 define('ZITA_TOP_HEADER_LAYOUT_NONE', ZITA_THEME_URI. "customizer/images/top-header-none.png");
@@ -38,3 +37,9 @@ define('ZITA_BLOG_ARCHIVE_LAYOUT_4', ZITA_THEME_URI. "customizer/images/blog-lay
 /**************************/
 define('ZITA_COLOR_SCHM_DRK', ZITA_THEME_URI. "customizer/images/dark-color-scheme.png");
 define('ZITA_COLOR_SCHM_DEF', ZITA_THEME_URI. "customizer/images/default-color-scheme.png");
+
+define('ZITA_ABOVEHEADER_PRO', ZITA_THEME_URI. "customizer/images/above-header-pro.png");
+define('ZITA_MAINHEADER_PRO1', ZITA_THEME_URI. "customizer/images/main-header-pro.png");
+define('ZITA_MAINHEADER_PRO2', ZITA_THEME_URI. "customizer/images/main-header-pro-2.png");
+define('ZITA_TYPOGRAPHY_PRO', ZITA_THEME_URI. "customizer/images/typography-pro.png");
+define('ZITA_COLORS_PRO', ZITA_THEME_URI. "customizer/images/colors-pro.png");

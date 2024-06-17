@@ -398,6 +398,6 @@ $wp_customize->add_control(new Zita_Misc_Control( $wp_customize, 'zita_below_foo
             array(
         'section'     => 'zita-bottom-footer',
         'type'        => 'custom_message',
-        'description' => sprintf( wp_kses(__( 'To know more Go with this <a target="_blank" href="%s">Doc</a> !', 'zita' ), array(  'a' => array( 'href' => array(),'target' => array() ) ) ),apply_filters('zita_doc_link', zita_get_pro_url( 'https://wpzita.com/docs/below-footer/', 'below-footer' ) ) ),
+        'description' => sprintf( wp_kses(__( 'To get acess to all premium features  <a target="_blank" href="%s">Get Pro</a> !', 'zita' ), array(  'a' => array( 'href' => array(),'target' => array() ) ) ),apply_filters('zita_doc_link', zita_get_pro_url( 'https://themehunk.com/zita-pro-wordpress-theme/', 'below-footer' ) ) ),
         'priority'   =>30,
     )));

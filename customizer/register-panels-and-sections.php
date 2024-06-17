@@ -227,6 +227,12 @@ $wp_customize->add_section('zita-hamburger-color', array(
     'panel'    => 'zita-panel-color-background',
     'priority' => 2,
 ));
+
+$wp_customize->add_section('zita-pro-colorSection', array(
+    'title'    => __('Advanced Premium Colors Options', 'zita'),
+    'panel'    => 'zita-panel-color-background',
+    'priority' => 1,
+));
 /*********************/
 // Typography
 /*********************/
@@ -290,3 +296,46 @@ $wp_customize->add_section('zita-imp-link-section', array(
         'title'    => __('Important Links', 'zita'),
         'priority' => 30,
 ));
+
+$zita_base_typography_pro = new Zita_WP_Customize_Section( $wp_customize,'zita-base-typography-pro', array(
+    'title'      => __('Premium Typography (Pro)', 'zita' ), 
+    'panel'      => 'zita-base-typography',
+    'priority'   => 2,
+  ));
+$wp_customize->add_section($zita_base_typography_pro);
+
+// Pro feature List
+
+if(class_exists('Zita_WP_Customize_Control_Radio_Image')){
+        $wp_customize->add_setting(
+            'zita_typography_pro_list', array(
+                'default'           => 'headerPro',
+                'sanitize_callback' => 'sanitize_text_field',
+            )
+        );
+$wp_customize->add_control(
+            new Zita_WP_Customize_Control_Radio_Image(
+                $wp_customize, 'zita_typography_pro_list', array(
+                    'label'    => esc_html__( 'A lot of Pro Typography Features (Pro)', 'zita' ),
+                    'section'  => 'zita-base-typography-pro',
+                    'priority'   => 108,
+                    'choices'  => array(
+                        'headerPro'   => array(
+                            'url' => ZITA_TYPOGRAPHY_PRO,
+                        ),       
+                    ),
+                )
+            )
+        );
+}
+
+$wp_customize->add_setting('zita_typography_pro_more', array(
+    'sanitize_callback' => 'zita_sanitize_text',
+    ));
+$wp_customize->add_control(new Zita_Misc_Control( $wp_customize, 'zita_typography_pro_more',
+            array(
+        'section'     => 'zita-base-typography-pro',
+        'type'        => 'custom_message',
+        'description' => sprintf( wp_kses(__( '<a target="_blank" href="%s">Get Pro</a> !', 'zita' ), array(  'a' => array( 'href' => array(),'target' => array() ) ) ), apply_filters('zita_pro_link', zita_get_pro_url( 'https://themehunk.com/zita-pro-wordpress-theme/' ) )),
+         'priority'   =>50,
+    )));

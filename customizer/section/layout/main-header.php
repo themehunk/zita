@@ -65,7 +65,7 @@ $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'zita_main_
             ) ) );
 // main header setting
 $wp_customize->add_setting('zita_main_header_set', array(
-        'default'        => 'none',
+        'default'        => 'social',
         'capability'     => 'edit_theme_options',
         'sanitize_callback' => 'esc_attr',
     ));
@@ -75,12 +75,12 @@ $wp_customize->add_control( 'zita_main_header_set', array(
         'section'  => 'zita-main-header',
         'type'     => 'select',
         'choices'    => array(
-        'none'       => __('None','zita'),
-        'text'       => __('Text','zita'),
-        'search'     => __('Search','zita'),
-        'widget'     => __('Widget','zita'),
+        'none'       => __('None (Pro)','zita'),
+        'text'       => __('Text (Pro)','zita'),
+        'search'     => __('Search (Pro)','zita'),
+        'widget'     => __('Widget (Pro)','zita'),
         'social'     => __('Social Media','zita'),
-        'button'     => __('Button','zita'),
+        'button'     => __('Button (Pro)','zita'),
         ),
     ));
 // text/html
@@ -284,6 +284,46 @@ $wp_customize->add_control(
 $wp_customize->get_control( 'header_image' )->section = 'zita-page-header';
 $wp_customize->get_control( 'header_image' )->priority = 35;
 
+
+
+// Pro feature List
+$wp_customize->add_setting('zita_main_header_pro_link', array(
+    'sanitize_callback' => 'zita_sanitize_text',
+    ));
+$wp_customize->add_control(new Zita_Misc_Control( $wp_customize, 'zita_main_header_pro_link',
+            array(
+        'section'     => 'zita-main-header',
+        'type'        => 'custom_message',
+        'description' => sprintf( wp_kses(__( 'Alot of pro features Space Main Header<a target="_blank" href="%s">Get Pro</a> !', 'zita' ), array(  'a' => array( 'href' => array(),'target' => array() ) ) ), apply_filters('zita_pro_link', zita_get_pro_url( 'https://themehunk.com/zita-pro-wordpress-theme/', 'main-header' ) )),
+         'priority'   =>50,
+    )));
+
+if(class_exists('Zita_WP_Customize_Control_Radio_Image')){
+        $wp_customize->add_setting(
+            'zita_main_header_pro_list', array(
+                'default'           => 'headerPro',
+                'sanitize_callback' => 'sanitize_text_field',
+            )
+        );
+$wp_customize->add_control(
+            new Zita_WP_Customize_Control_Radio_Image(
+                $wp_customize, 'zita_main_header_pro_list', array(
+                    'label'    => esc_html__( 'Some More Pro Features', 'zita' ),
+                    'section'  => 'zita-main-header',
+                    'priority'   => 108,
+                    'choices'  => array(
+                        'headerPro'   => array(
+                            'url' => ZITA_MAINHEADER_PRO1,
+                        ), 
+                        'headerPro2'   => array(
+                            'url' => ZITA_MAINHEADER_PRO2,
+                        ),       
+                    ),
+                )
+            )
+        );
+}
+
 /****************/
 //doc link
 /****************/
@@ -295,5 +335,5 @@ $wp_customize->add_control(new Zita_Misc_Control( $wp_customize, 'zita_main_head
         'section'     => 'zita-main-header',
         'type'        => 'custom_message',
         'description' => sprintf( wp_kses(__( 'To know more Go with this <a target="_blank" href="%s">Doc</a> !', 'zita' ), array(  'a' => array( 'href' => array(),'target' => array() ) ) ), apply_filters('zita_doc_link', zita_get_pro_url( 'https://wpzita.com/docs/main-header/', 'main-header' ) )),
-         'priority'   =>50,
+         'priority'   =>108,
     )));

@@ -97,7 +97,7 @@ body.wp-customizer .wp-color-result-text {
 background:#0073aa;
 padding:5px;
 text-align:center;
-color:#fff;
+color:#fff!important;
 display: block;
 }
 

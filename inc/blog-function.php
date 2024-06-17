@@ -411,10 +411,7 @@ function zita_blog_highlight_layout_class( $classes ){
 	        $zita_blog_layout = get_theme_mod( 'zita_blog_layout' );
 	        $zita_blog_grid_layout = get_theme_mod( 'zita_blog_grid_layout' );
 	        if($zita_blog_layout=='zta-blog-layout-1' || $zita_blog_grid_layout){
-            $zita_blog_highlight = get_theme_mod( 'zita_blog_highlight' );
-			if ( $zita_blog_highlight ) {
-				$classes = 'zta-blog-highlight';
-			}
+            
            }
 		    return $classes;	
 		}
@@ -502,12 +499,6 @@ $zita_blog_post_pagination = get_theme_mod( 'zita_blog_post_pagination','num');
 $zita_load_more_txt = get_theme_mod( 'zita_load_more_txt',__( 'More Post', 'zita' ));
 if($zita_blog_post_pagination=='num'){
 the_posts_pagination();
-}
-elseif($zita_blog_post_pagination=='click'){	
-zita_load_more_button('',$zita_load_more_txt,'');
-}
-elseif($zita_blog_post_pagination=='scroll'){
-zita_scrolling_ajax();
 }
 }
 endif;

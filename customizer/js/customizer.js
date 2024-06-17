@@ -96,4 +96,11 @@ jQuery( '.focus-customizer-social_media-redirect-col1,.focus-customizer-social_m
             jQuery( this ).parents( '.customize-control' ).find( 'input[type="hidden"]' ).val( checkbox_values ).trigger( 'change' );
         }
     );
+
+
+
+    jQuery('input[id=zita_main_header_layout-mhdrcenter],input[id=zita_main_header_layout-mhdrright],input[id=zita_main_header_layout-mhdrleftpan],input[id=zita_main_header_layout-mhdrrightpan],input[id=zita_main_header_layout-mhdfull],input[id=zita_main_header_layout-mhdminbarleft]').attr("disabled",true);
+    jQuery('#_customize-input-zita_main_header_set option:not([value="social"]').attr("disabled",true).css("color", "red");
+    jQuery('#_customize-input-zita_blog_grid_layout option[value="zta-three-colm"],#_customize-input-zita_blog_grid_layout option[value="zta-four-colm"],#_customize-input-zita_blog_post_pagination option[value="click"],#_customize-input-zita_blog_post_pagination option[value="scroll"],#_customize-input-zita_single_post_content_width option[value="custom"],#_customize-input-zita_woo_product_animation option[value="zoom"],#_customize-input-zita_woo_product_animation option[value="swap"],#_customize-input-zita_single_product_content_width option[value="custom"]').attr("disabled",true).css("color", "red");
+    jQuery('input#_customize-input-zita_blog_highlight,input#_customize-input-zita_scroll_to_top_disable,input#_customize-input-zita_preloader_enable').attr("disabled",true);
 });

@@ -64,3 +64,46 @@
                 width:33.33%;
 
        }
+
+       #customize-control-zita_main_header_pro_list.customize-control-radio-image label,
+       #customize-control-zita_above_header_pro_list.customize-control-radio-image label,
+       #customize-control-zita_below_header_pro_list.customize-control-radio-image label,
+       #customize-control-zita_typography_pro_list.customize-control-radio-image label,
+       #customize-control-zita_color_pro_list.customize-control-radio-image label{
+        width: 100%;
+        max-width: 100%;
+       }
+
+       #customize-control-zita_main_header_pro_list.customize-control-radio-image img,
+       #customize-control-zita_above_header_pro_list.customize-control-radio-image img,
+       #customize-control-zita_below_header_pro_list.customize-control-radio-image img,
+       #customize-control-zita_typography_pro_list.customize-control-radio-image img,
+       #customize-control-zita_color_pro_list.customize-control-radio-image img{
+       padding: 5px;
+       border: 2px dashed #000;
+       }
+
+       .customize-control-radio-image img{
+        margin: 0 auto;
+        display: block;
+       }
+
+       .customize-control.customize-control-custom_message a{
+        color: #0716e7!important;
+        font-weight: 700;
+       }
+
+
+ @keyframes blink {  
+  0% { color: red; }
+  100% { color: green; }
+}
+@-webkit-keyframes blink {
+  0% { color: red; }
+  100% { color: black; }
+}
+#customize-control-zita_abv_header_doc_learn_more p:not(a){
+  -webkit-animation: blink 1s linear infinite;
+  -moz-animation: blink 1s linear infinite;
+  animation: blink 1s linear infinite;
+}

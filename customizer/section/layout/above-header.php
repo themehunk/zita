@@ -18,7 +18,7 @@ if(class_exists('Zita_WP_Customize_Control_Radio_Image')){
 $wp_customize->add_control(
             new Zita_WP_Customize_Control_Radio_Image(
                 $wp_customize, 'zita_above_header_layout', array(
-                    'label'    => esc_html__( 'Layout', 'zita' ),
+                    'label'    => esc_html__( 'Layout (Pro) (Its features will work in Premium version)', 'zita' ),
                     'section'  => 'zita-above-header',
                     'choices'  => array(
                        'abv-none'   => array(
@@ -390,6 +390,31 @@ $wp_customize->add_control(
  } 
 }
 
+// Pro feature List
+
+if(class_exists('Zita_WP_Customize_Control_Radio_Image')){
+        $wp_customize->add_setting(
+            'zita_above_header_pro_list', array(
+                'default'           => 'headerPro',
+                'sanitize_callback' => 'sanitize_text_field',
+            )
+        );
+$wp_customize->add_control(
+            new Zita_WP_Customize_Control_Radio_Image(
+                $wp_customize, 'zita_above_header_pro_list', array(
+                    'label'    => esc_html__( 'Some More Pro Features', 'zita' ),
+                    'section'  => 'zita-above-header',
+                    'priority'   => 108,
+                    'choices'  => array(
+                        'headerPro'   => array(
+                            'url' => ZITA_ABOVEHEADER_PRO,
+                        ),       
+                    ),
+                )
+            )
+        );
+}
+
 /****************/
 //doc link
 /****************/
@@ -401,6 +426,6 @@ $wp_customize->add_control(new Zita_Misc_Control( $wp_customize, 'zita_abv_heade
             array(
         'section'     => 'zita-above-header',
         'type'        => 'custom_message',
-        'description' => sprintf( wp_kses(__( 'To know more Go with this <a target="_blank" href="%s">Doc</a> !', 'zita' ), array(  'a' => array( 'href' => array(),'target' => array() ) ) ), apply_filters('zita_doc_link', zita_get_pro_url( 'https://wpzita.com/docs/above-header/', 'above-header' ) )),
+        'description' => sprintf( wp_kses(__( 'Alot of pro features like  Menu Space , Sub Menu Space, Space Above Header <a target="_blank" href="%s">Get Pro !</a>', 'zita' ), array(  'a' => array( 'href' => array(),'target' => array() ) ) ), apply_filters('zita_pro_link', zita_get_pro_url( 'https://themehunk.com/zita-pro-wordpress-theme/' ) )),
          'priority'   =>50,
     )));

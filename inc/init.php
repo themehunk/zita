@@ -42,3 +42,6 @@ get_template_part('lib/page-meta-box/zita-page-meta-box');
 //woocommerce
 get_template_part('inc/woocommerce/woocommerce-config');
 get_template_part('inc/woocommerce/woocommerce-ajax');
+// Probutton
+/******************************/
+get_template_part('customizer/pro-button/class-customize');

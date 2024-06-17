@@ -48,8 +48,8 @@ $wp_customize->add_control(
         'choices' => array(
         'zta-one-colm'     => __('One Column','zita'),
         'zta-two-colm'     => __('Two Column','zita'),
-        'zta-three-colm'   => __('Three Column','zita'),
-        'zta-four-colm'    => __('Four Column','zita'), 
+        'zta-three-colm'   => __('Three Column (Pro) ','zita'),
+        'zta-four-colm'    => __('Four Column (Pro) ','zita'), 
         ),
          'priority'   =>2,
     ));
@@ -59,7 +59,7 @@ $wp_customize->add_control(
                 'sanitize_callback' => 'zita_sanitize_checkbox',
             ) );
     $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'zita_blog_highlight', array(
-                'label'       => esc_html__('Make First Post Large', 'zita'),
+                'label'       => esc_html__('Make First Post Large (Pro)', 'zita'),
                 'type'        => 'checkbox',
                 'section'     => 'zita-blog-archive',
                 'settings'    => 'zita_blog_highlight',
@@ -228,8 +228,8 @@ $wp_customize->add_control(
         'type'    => 'select',
         'choices' => array(
         'num'     => __('Numbered','zita'),
-        'click'   => __('Load More','zita'), 
-        'scroll'  => __('Infinite Scroll','zita'), 
+        'click'   => __('Load More (Pro)','zita'), 
+        'scroll'  => __('Infinite Scroll (Pro)','zita'), 
         ),
         'priority'   =>13,
     ));

@@ -60,9 +60,7 @@ if ((is_single() || is_page()) || ((class_exists( 'WooCommerce' ))&&(is_woocomme
 <body <?php body_class(array(esc_attr($zita_default_container), esc_attr($zita_main_header_layout), esc_attr($zita_above_header_layout),esc_attr($zita_container_site_layout))); ?>>
 <?php wp_body_open();?>		
 
-<?php if(get_theme_mod('zita_scroll_to_top_disable')==false):?>	
-<input type="hidden" id="back-to-top" value="on"/>
-<?php endif;?>
+
 <?php if(get_theme_mod('zita_stick_hide_scroll_down')==true):?>	
 <input type="hidden" id="header-scroll-down-hide" value="on"/>
 <?php endif;?>

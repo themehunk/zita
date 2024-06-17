@@ -24,7 +24,7 @@ if ( ! class_exists( 'WooCommerce' ) ){
         'type'    => 'select',
         'choices' => array(
         'defualt'    => __('Default','zita'),
-        'custom'     => __('Custom','zita'), 
+        'custom'     => __('Custom (Pro)','zita'), 
         ),
     ));
 $wp_customize->add_setting('zita_single_sidebar_disable', array(
