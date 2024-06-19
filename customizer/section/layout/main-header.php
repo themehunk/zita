@@ -201,7 +201,7 @@ $wp_customize->add_setting( 'zita_main_header_width_full', array(
                 'sanitize_callback'     => 'zita_sanitize_checkbox',
 ) );
 $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'zita_main_header_width_full', array(
-                'label'                 => esc_html__('Enable Full Width Header', 'zita'),
+                'label'                 => esc_html__('Enable Full Width Header (Pro)', 'zita'),
                 'type'                  => 'checkbox',
                 'section'               => 'zita-main-header',
                 'settings'              => 'zita_main_header_width_full',

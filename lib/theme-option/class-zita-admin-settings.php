@@ -177,7 +177,7 @@ if ( ! class_exists( 'Zita_Admin_Settings' ) ){
 			add_action( 'zita_header_right_section', __CLASS__ . '::top_header_right_section' );
 			add_filter( 'admin_title', __CLASS__ . '::zita_admin_title', 10, 2 );
 			add_action( 'zita_welcome_page_right_sidebar_content', __CLASS__ . '::zita_welcome_page_starter_sites_section', 10 );
-				add_action( 'zita_welcome_page_right_sidebar_content', __CLASS__ . '::zita_welcome_pro_section', 11 );
+			add_action( 'zita_welcome_page_right_sidebar_content', __CLASS__ . '::zita_welcome_pro_section', 12 );
 			add_action( 'zita_welcome_page_right_sidebar_content', __CLASS__ . '::zita_welcome_page_knowledge_base_scetion', 12 );
 			add_action( 'zita_welcome_page_right_sidebar_content', __CLASS__ . '::zita_welcome_page_community_scetion', 12 );
 			add_action( 'zita_welcome_page_right_sidebar_content', __CLASS__ . '::zita_welcome_page_five_star_scetion', 13 );

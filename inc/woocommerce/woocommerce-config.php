@@ -46,7 +46,7 @@ if ( ! class_exists( 'Zita_Woocommerce' ) ) :
 			add_action( 'widgets_init', array( $this, 'zita_store_widgets_init' ), 15 );
 			// Replace Store Sidebars.
 			add_filter( 'zita_get_sidebar', array( $this, 'zita_replace_store_sidebar' ) );
-			// add_action( 'woocommerce_before_shop_loop_item_title', array( $this, 'product_flip_image' ), 10 );
+			add_action( 'woocommerce_before_shop_loop_item_title', array( $this, 'product_flip_image' ), 10 );
 			add_filter( 'post_class', array( $this, 'zita_product_class' ) );
 			add_action( 'wp', array( $this, 'woocommerce_init' ), 1 );
 			add_action( 'wp', array( $this, 'shop_customization' ), 5 );
@@ -134,7 +134,27 @@ if ( ! class_exists( 'Zita_Woocommerce' ) ) :
 
 			return $sidebar;
 		}
-		
+		/**
+		 * Product Flip Image
+		 */
+		function product_flip_image() {
+
+			global $product;
+
+			$hover_style = get_theme_mod( 'zita_woo_product_animation' );
+
+			if ( 'swap' === $hover_style ) {
+
+				$attachment_ids = $product->get_gallery_image_ids();
+
+				if ( $attachment_ids ) {
+
+					$image_size = apply_filters( 'single_product_archive_thumbnail_size', 'shop_catalog' );
+
+					echo apply_filters( 'zita_woocommerce_product_flip_image', wp_get_attachment_image( reset( $attachment_ids ), $image_size, false, array( 'class' => 'show-on-hover' ) ) );
+				}
+			}
+		}
 		/**
 		 * Add class on single product page
 		 *
@@ -144,6 +164,10 @@ if ( ! class_exists( 'Zita_Woocommerce' ) ) :
 		 */
 		function zita_product_class( $classes ) {
 			if ( is_shop() || is_product_taxonomy() || post_type_exists( 'product' ) ) {
+				$hover_style = get_theme_mod( 'zita_woo_product_animation' );
+				if ( '' !== $hover_style ) {
+					$classes[] = 'zita-woo-hover-' . esc_attr($hover_style);
+				}
 				$align_style = get_theme_mod( 'zita_product_content_alignment','' );
 
 				if ( '' !== $align_style ) {

@@ -12,7 +12,7 @@
 /***************************/
 if ( ! function_exists( 'zita_minbar_header_markup' ) ){
 function zita_minbar_header_markup(){ 
-$zita_main_header_layout = get_theme_mod('zita_main_header_layout','mhdrleft'); 
+$zita_main_header_layout = get_theme_mod('zita_main_header_layout'); 
 if($zita_main_header_layout=='mhdminbarleft'){
 $barlayout='leftminbar';
 }else{
@@ -62,7 +62,7 @@ $zita_main_header_menu_disable = get_theme_mod( 'zita_main_header_menu_disable',
 /************************/
 if ( ! function_exists( 'zita_bottombar_header_markup' ) ){
 function zita_bottombar_header_markup(){ 
-$zita_main_header_layout = get_theme_mod('zita_main_header_layout'); 
+$zita_main_header_layout = get_theme_mod('zita_main_header_layout','mhdrleft'); 
 if($zita_main_header_layout=='mhdminbarbtm'){
 $barlayout='bottomminbar';
 }
@@ -246,8 +246,431 @@ if( $description || is_customize_preview() ):?>
     } 
   }
 }
+/**************************************/
+//Top Header function
+/**************************************/
+if ( ! function_exists( 'zita_top_header_markup' ) ){	
+function zita_top_header_markup(){ ?>
+<?php 
+$zita_above_header_layout     = get_theme_mod( 'zita_above_header_layout','abv-none');
+$zita_above_header_col1_set   = get_theme_mod( 'zita_above_header_col1_set','text');
+$zita_above_header_col2_set   = get_theme_mod( 'zita_above_header_col2_set','text');
+$zita_above_header_col3_set   = get_theme_mod( 'zita_above_header_col3_set','text');
+?>
+<div class="top-header">
+			<div class="top-header-bar <?php echo esc_attr($zita_above_header_layout);?>">
+	     	<div class="container">
+	     		<div class="top-header-container">
+	     		<?php if($zita_above_header_layout=='abv-one'):?>	
+		         <div class="top-header-col1">
+		         	<?php zita_top_header_conetnt_col1($zita_above_header_col1_set); ?>
+		         </div>
+		        <?php elseif($zita_above_header_layout=='abv-two'): ?>
+		        <div class="top-header-col1">
+		        	<?php zita_top_header_conetnt_col1($zita_above_header_col1_set); ?>
+		         </div>
+		         <div class="top-header-col2">
+                    <?php zita_top_header_conetnt_col2($zita_above_header_col2_set); ?></div>
+		         <?php elseif($zita_above_header_layout=='abv-three'): ?>
+                  <div class="top-header-col1">
+                  	<?php zita_top_header_conetnt_col1($zita_above_header_col1_set); ?>
+		         </div>
+		         <div class="top-header-col2">
+                    <?php zita_top_header_conetnt_col2($zita_above_header_col2_set); ?></div>
+		         <div class="top-header-col3">
+                    <?php zita_top_header_conetnt_col3($zita_above_header_col3_set); ?></div>
+                 <?php endif;?>
+		          </div>
+		        </div>
+		</div>
+</div>
+<?php	}
+}
+add_action( 'zita_top_header', 'zita_top_header_markup' );
+//************************************/
+// top header col1 function
+//************************************/
+if ( ! function_exists( 'zita_top_header_conetnt_col1' ) ){	
+function zita_top_header_conetnt_col1($content){ 
+$zita_mobile_menu_open = get_theme_mod( 'zita_mobile_menu_open','overcenter');?>
+<?php if($content=='text'){?>
+<div class='content-html'>
+	<?php echo esc_html(get_theme_mod('zita_col1_texthtml',  __( 'Add your content here', 'zita' )));?>
+</div>
+<?php }elseif($content=='menu'){
+if ( has_nav_menu('zita-above-menu' ) ) {?>
+<!-- Menu Toggle btn-->
+     <nav> 
+        <div class="menu-toggle">
+            <button type="button" class="menu-btn menu-btn-abv" id="menu-btn-abv">
+            	<div class="btn">
+                <span class="icon-bar" tabindex="-1"></span>
+                <span class="icon-bar" tabindex="-1"></span>
+                <span class="icon-bar" tabindex="-1"></span>
+                </div>
+            </button>
+        </div>
+        <div class="sider above zita-menu-hide <?php echo esc_attr($zita_mobile_menu_open);?>">
+        <div class="sider-inner">
+        <?php zita_abv_nav_menu();?>
+        </div>
+      </div>
+    </nav>
+<?php 
+  }else{?>
+<a href="<?php echo esc_url( admin_url( 'nav-menus.php' ) ); ?>"><?php esc_html_e( 'Assign Above header menu', 'zita' );?></a>
+ <?php }
+}
+elseif($content=='search'){?>
+<div class="searchfrom">
+<a href="#" class="search-btn"><i class="fa fa-search"></i></a>
+<?php get_search_form();?>
+</div>
+<?php }elseif($content=='widget'){?>
+	<div class="content-widget">
+    <?php if( is_active_sidebar('top-header-widget-col1' ) ){
+    dynamic_sidebar('top-header-widget-col1' );
+     }else{?>
+     	<a href="<?php echo esc_url( admin_url( 'widgets.php' ) ); ?>"><?php esc_html_e( 'Add Widget', 'zita' );?></a>
+     <?php }?>
+     </div>
+<?php }elseif($content=='social'){?>
+<div class="content-social">
+<?php echo zita_social_links();?>
+</div>
+<?php }elseif($content=='none'){
+return false;
+}?>
+<?php }
+}
+//************************************/
+// top header col2 function
+//************************************/
+if ( ! function_exists( 'zita_top_header_conetnt_col2' ) ){	
+function zita_top_header_conetnt_col2($content){ 
+$zita_mobile_menu_open = get_theme_mod( 'zita_mobile_menu_open','overcenter');?>
+<?php if($content=='text'){?>
+<div class='content-html'>
+	<?php echo esc_html(get_theme_mod('zita_col2_texthtml',  __( 'Add your content here', 'zita' )));?>
+</div>
+<?php }elseif($content=='menu'){
+	if ( has_nav_menu('zita-above-menu' ) ){?>
+<!-- Menu Toggle btn-->
+        <nav> 
+        <div class="menu-toggle">
+            <button type="button" class="menu-btn menu-btn-abv" id="menu-btn-abv">
+                <div class="btn">
+                <span class="icon-bar" tabindex="-1"></span>
+                <span class="icon-bar" tabindex="-1"></span>
+                <span class="icon-bar" tabindex="-1"></span>
+                </div>
+            </button>
+        </div>
+        <div class="sider above zita-menu-hide <?php echo esc_attr($zita_mobile_menu_open);?>">
+        <div class="sider-inner">
+        <?php zita_abv_nav_menu();?>
+        </div>
+      </div>
+    </nav>
+<?php 
+ }else{?>
+<a href="<?php echo esc_url( admin_url( 'nav-menus.php' ) ); ?>"><?php esc_html_e( 'Assign Above header menu', 'zita' );?></a>
+ <?php }
+}
+elseif($content=='search'){?>
+<div class="searchfrom">
+<a href="#" class="search-btn"><i class="fa fa-search"></i></a>
+<?php get_search_form();?>
+</div>
+<?php }elseif($content=='widget'){?>
+	<div class="content-widget">
+    <?php if( is_active_sidebar('top-header-widget-col2' ) ){
+    dynamic_sidebar('top-header-widget-col2' );
+     }else{?>
+     	<a href="<?php echo esc_url( admin_url( 'widgets.php' ) ); ?>"><?php esc_html_e( 'Add Widget', 'zita' );?></a>
+     <?php }?>
+     </div>
+<?php }elseif($content=='social'){?>
+<div class="content-social">
+<?php echo zita_social_links();?>
+</div>
+<?php }elseif($content=='none'){
+return false;
+}?>
+<?php }
+}
 
+//************************************/
+// top header col3 function
+//************************************/
+if ( ! function_exists( 'zita_top_header_conetnt_col3' ) ){	
+function zita_top_header_conetnt_col3($content){ 
+$zita_mobile_menu_open = get_theme_mod( 'zita_mobile_menu_open','overcenter');?>
+<?php if($content=='text'){?>
+<div class='content-html'>
+	<?php echo esc_html(get_theme_mod('zita_col3_texthtml',  __( 'Add your content here', 'zita' )));?>
+</div>
+<?php }elseif($content=='menu'){
+	if ( has_nav_menu('zita-above-menu' ) ) {?>
+<!-- Menu Toggle btn-->
+       <nav> 
+        <div class="menu-toggle">
+            <button type="button" class="menu-btn menu-btn-abv" id="menu-btn-abv">
+                <div class="btn">
+                <span class="icon-bar" tabindex="-1"></span>
+                <span class="icon-bar" tabindex="-1"></span>
+                <span class="icon-bar" tabindex="-1"></span>
+                </div>
+            </button>
+        </div>
+        <div class="sider above zita-menu-hide <?php echo esc_attr($zita_mobile_menu_open);?>">
+        <div class="sider-inner">
+        <?php zita_abv_nav_menu();?>
+        </div>
+      </div>
+    </nav>
+<?php 
+ }else{?>
+<a href="<?php echo esc_url( admin_url( 'nav-menus.php' ) ); ?>"><?php esc_html_e( 'Assign Above header menu', 'zita' );?></a>
+ <?php }
+}
+elseif($content=='search'){?>
+<div class="searchfrom">
+<a href="#" class="search-btn"><i class="fa fa-search"></i></a>
+<?php get_search_form();?>
+</div>
+<?php }elseif($content=='widget'){?>
+	<div class="content-widget">
+    <?php if( is_active_sidebar('top-header-widget-col3' ) ){
+    dynamic_sidebar('top-header-widget-col3' );
+     }else{?>
+     	<a href="<?php echo esc_url( admin_url( 'widgets.php' ) ); ?>"><?php esc_html_e( 'Add Widget', 'zita' );?></a>
+     <?php }?>
+     </div>
+<?php }elseif($content=='social'){?>
+<div class="content-social">
+<?php echo zita_social_links();?>
+</div>
+<?php }elseif($content=='none'){
+return false;
+}?>
+<?php }
+}
+/***************************/
+// bottom-header
+/***************************/
+if ( ! function_exists( 'zita_bottom_header_markup' ) ){
+function zita_bottom_header_markup(){ ?>
+<?php 
+$zita_bottom_header_layout     = get_theme_mod( 'zita_bottom_header_layout','btm-none');
+$zita_bottom_header_col1_set   = get_theme_mod( 'zita_bottom_header_col1_set','text');
+$zita_bottom_header_col2_set   = get_theme_mod( 'zita_bottom_header_col2_set','text');
+$zita_bottom_header_col3_set   = get_theme_mod( 'zita_bottom_header_col3_set','text');
+?>
+<div class="bottom-header">
+            <div class="bottom-header-bar <?php echo esc_attr($zita_bottom_header_layout);?>">
+                <div class="container">
+                    <div class="bottom-header-container">
+                 <?php if($zita_bottom_header_layout=='btm-one'):?>
+                     <div class="bottom-header-col1">
+                        <?php zita_bottom_header_content_col1($zita_bottom_header_col1_set); ?>
+                        </div>
+                 <?php endif; ?>
+                 <?php if($zita_bottom_header_layout=='btm-two'):?>
+                     <div class="bottom-header-col1">
+                        <?php zita_bottom_header_content_col1($zita_bottom_header_col1_set); ?></div>
+                     <div class="bottom-header-col2">
+                        <?php zita_bottom_header_content_col2($zita_bottom_header_col2_set); ?>
+                        </div>
+                 <?php endif; ?>
+                  <?php if($zita_bottom_header_layout=='btm-three'):?>
+                     <div class="bottom-header-col1">
+                        <?php zita_bottom_header_content_col1($zita_bottom_header_col1_set); ?></div>
+                     <div class="bottom-header-col2">
+                        <?php zita_bottom_header_content_col2($zita_bottom_header_col2_set); ?>
+                        </div>
+                     <div class="bottom-header-col3">
+                        <?php zita_bottom_header_content_col3($zita_bottom_header_col3_set); ?></div>
+                 <?php endif; ?>
+                   </div>
+                 </div>
+             </div>
+         </div>
+<?php   }
+}
+add_action( 'zita_bottom_header', 'zita_bottom_header_markup' );
 
+//************************************/
+// bottom header col1 function
+//************************************/
+if ( ! function_exists( 'zita_bottom_header_content_col1' ) ){ 
+function zita_bottom_header_content_col1($content){ 
+$zita_mobile_menu_open = get_theme_mod( 'zita_mobile_menu_open','overcenter');?>
+<?php if($content=='text'){?>
+<div class='content-html'>
+    <?php echo esc_html(get_theme_mod('zita_col1_bottom_texthtml',  __( 'Add your content here', 'zita' )));?>
+</div>
+<?php }elseif($content=='menu'){
+    if ( has_nav_menu('zita-bottom-menu' ) ) {?>
+<!-- Menu Toggle btn-->
+        <nav> 
+        <div class="menu-toggle">
+            <button type="button" class="menu-btn menu-btn-btm" id="menu-btn-btm">
+                <div class="btn">
+                <span class="icon-bar" tabindex="-1"></span>
+                <span class="icon-bar" tabindex="-1"></span>
+                <span class="icon-bar" tabindex="-1"></span>
+                </div>
+            </button>
+        </div>
+        <div class="sider bottom zita-menu-hide <?php echo esc_attr($zita_mobile_menu_open);?>">
+        <div class="sider-inner">
+        <?php zita_btm_nav_menu();?>
+        </div>
+      </div>
+    </nav>
+<?php 
+
+ }else{?>
+<a href="<?php echo esc_url( admin_url( 'nav-menus.php' ) ); ?>"><?php esc_html_e( 'Assign Bottom Header Menu', 'zita' );?></a>
+ <?php }
+}
+elseif($content=='search'){?>
+<div class="searchfrom">
+<a href="#" class="search-btn"><i class="fa fa-search"></i></a>
+<?php get_search_form();?>
+</div>
+<?php }elseif($content=='widget'){?>
+    <div class="content-widget">
+    <?php if( is_active_sidebar('bottom-header-widget-col1' ) ){
+    dynamic_sidebar('bottom-header-widget-col1' );
+     }else{?>
+        <a href="<?php echo esc_url( admin_url( 'widgets.php' ) ); ?>"><?php esc_html_e( 'Add Widget', 'zita' );?></a>
+     <?php }?>
+     </div>
+<?php }elseif($content=='social'){?>
+<div class="content-social">
+<?php echo zita_social_links();?>
+</div>
+<?php }elseif($content=='none'){
+return false;
+}?>
+<?php }
+}
+//************************************/
+// bottom header col2 function
+//************************************/
+if ( ! function_exists( 'zita_bottom_header_content_col2' ) ){ 
+function zita_bottom_header_content_col2($content){ 
+$zita_mobile_menu_open = get_theme_mod( 'zita_mobile_menu_open','overcenter'); ?>
+<?php if($content=='text'){?>
+<div class='content-html'>
+    <?php echo esc_html(get_theme_mod('zita_col2_bottom_texthtml',  __( 'Add your content here', 'zita' )));?>
+</div>
+<?php }elseif($content=='menu'){
+    if ( has_nav_menu('zita-bottom-menu' ) ) {?>
+<!-- Menu Toggle btn-->
+        <nav> 
+        <div class="menu-toggle">
+            <button type="button" class="menu-btn menu-btn-btm" id="menu-btn-btm">
+                <div class="btn">
+                <span class="icon-bar" tabindex="-1"></span>
+                <span class="icon-bar" tabindex="-1"></span>
+                <span class="icon-bar" tabindex="-1"></span>
+                </div>
+            </button>
+        </div>
+        <div class="sider bottom zita-menu-hide <?php echo esc_attr($zita_mobile_menu_open);?>">
+        <div class="sider-inner">
+        <?php zita_btm_nav_menu();?>
+        </div>
+      </div>
+    </nav>
+<?php 
+
+ }else{?>
+<a href="<?php echo esc_url( admin_url( 'nav-menus.php' ) ); ?>"><?php esc_html_e( 'Assign Bottom Header Menu', 'zita' );?></a>
+ <?php }
+}
+elseif($content=='search'){?>
+<div class="searchfrom">
+<a href="#" class="search-btn"><i class="fa fa-search"></i></a>
+<?php get_search_form();?>
+</div>
+<?php }elseif($content=='widget'){?>
+    <div class="content-widget">
+    <?php if( is_active_sidebar('bottom-header-widget-col2' ) ){
+    dynamic_sidebar('bottom-header-widget-col2' );
+     }else{?>
+        <a href="<?php echo esc_url( admin_url( 'widgets.php' ) ); ?>"><?php esc_html_e( 'Add Widget', 'zita' );?></a>
+     <?php }?>
+     </div>
+<?php }elseif($content=='social'){?>
+<div class="content-social">
+<?php echo zita_social_links();?>
+</div>
+<?php }elseif($content=='none'){
+return false;
+}?>
+<?php }
+}
+//************************************/
+// bottom header col3 function
+//************************************/
+if ( ! function_exists( 'zita_bottom_header_content_col3' ) ){ 
+function zita_bottom_header_content_col3($content){
+$zita_mobile_menu_open = get_theme_mod( 'zita_mobile_menu_open','overcenter'); ?>
+<?php if($content=='text'){?>
+<div class='content-html'>
+    <?php echo esc_html(get_theme_mod('zita_col3_bottom_texthtml',  __( 'Add your content here', 'zita' )));?>
+</div>
+<?php }elseif($content=='menu'){
+    if ( has_nav_menu('zita-bottom-menu' ) ) {?>
+<!-- Menu Toggle btn-->
+        <nav> 
+        <div class="menu-toggle">
+            <button type="button" class="menu-btn menu-btn-btm" id="menu-btn-btm">
+                <div class="btn">
+                <span class="icon-bar" tabindex="-1"></span>
+                <span class="icon-bar" tabindex="-1"></span>
+                <span class="icon-bar" tabindex="-1"></span>
+                </div>
+            </button>
+        </div>
+        <div class="sider bottom zita-menu-hide <?php echo esc_attr($zita_mobile_menu_open);?>">
+        <div class="sider-inner">
+        <?php zita_btm_nav_menu();?>
+        </div>
+      </div>
+    </nav>
+<?php 
+
+ }else{?>
+<a href="<?php echo esc_url( admin_url( 'nav-menus.php' ) ); ?>"><?php esc_html_e( 'Assign Bottom Header Menu', 'zita' );?></a>
+ <?php }
+}
+elseif($content=='search'){?>
+<div class="searchfrom">
+<a href="#" class="search-btn"><i class="fa fa-search"></i></a>
+<?php get_search_form();?>
+</div>
+<?php }elseif($content=='widget'){?>
+    <div class="content-widget">
+    <?php if( is_active_sidebar('bottom-header-widget-col3' ) ){
+    dynamic_sidebar('bottom-header-widget-col3' );
+     }else{?>
+        <a href="<?php echo esc_url( admin_url( 'widgets.php' ) ); ?>"><?php esc_html_e( 'Add Widget', 'zita' );?></a>
+     <?php }?>
+     </div>
+<?php }elseif($content=='social'){?>
+<div class="content-social">
+<?php echo zita_social_links();?>
+</div>
+<?php }elseif($content=='none'){
+return false;
+}?>
+<?php }
+}
 /******************************/
 //Transparent header function
 /******************************/
@@ -276,7 +699,7 @@ function zita_header_transparent_class($zita_transparent_post_meta){
 
    }
 }
-if(get_theme_mod('zita_main_header_set','social')!=='none'):
+if(get_theme_mod('zita_main_header_set','none')!=='none'):
 function zita_add_header_custom_item($items, $args){
     if(get_theme_mod('zita_main_header_set')=='text'){
         $csmhtml = get_theme_mod('zita_main_header_texthtml',__('Add your content here','zita'));

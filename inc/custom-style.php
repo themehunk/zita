@@ -19,7 +19,7 @@ $zita_link_hvr_clr  = get_theme_mod('zita_link_hvr_clr','');
 $zita_text_clr      = get_theme_mod('zita_text_clr','');
 $zita_title_clr     = get_theme_mod('zita_title_clr','');
 $zita_loader_bg_clr = get_theme_mod('zita_loader_bg_clr','#f5f5f5');
-$zita_style .= "a:hover,.inifiniteLoader,mark,.single .nav-previous:hover:before,.single .nav-next:hover:after,.page-numbers.current, .page-numbers:hover, .prev.page-numbers:hover, .next.page-numbers:hover,.zita-load-more #load-more-posts:hover,article.zita-article h2.entry-title a:hover,.zita-menu li a:hover,.main-header .zita-menu > li > a:hover,.woocommerce nav.woocommerce-pagination ul li a:focus, .woocommerce nav.woocommerce-pagination ul li a:hover, .woocommerce nav.woocommerce-pagination ul li span.current,.zita-menu li.menu-active > a,.main-header .main-header-bar a:hover,.zita-menu .content-social .social-icon li a:hover,.mhdrleftpan .content-social .social-icon a:hover, .mhdrrightpan .content-social .social-icon a:hover{color:{$zita_theme_clr}}
+$zita_style .= "a:hover,.inifiniteLoader,mark,.single .nav-previous:hover:before,.single .nav-next:hover:after,.page-numbers.current, .page-numbers:hover, .prev.page-numbers:hover, .next.page-numbers:hover,.zita-load-more #load-more-posts:hover,article.zita-article h2.entry-title a:hover,.zita-menu li a:hover,.main-header .zita-menu > li > a:hover,.woocommerce nav.woocommerce-pagination ul li a:focus, .woocommerce nav.woocommerce-pagination ul li a:hover, .woocommerce nav.woocommerce-pagination ul li span.current,.zita-menu li.menu-active > a,.main-header .main-header-bar a:hover,.zita-menu .content-social .social-icon li a:hover,.mhdrleftpan .content-social .social-icon a:hover, .mhdrrightpan .content-social .social-icon a:hover,.footer-copyright a,.footer-copyright a:hover{color:{$zita_theme_clr}}
   .page-numbers.current, .page-numbers:hover, .prev.page-numbers:hover, .next.page-numbers:hover,.zita-load-more #load-more-posts:hover{border-color:{$zita_theme_clr}} #respond.comment-respond #submit,.read-more .zta-button, button,[type='submit'],.woocommerce #respond input#submit, 
 .woocommerce a.button,
 .woocommerce button.button, 
@@ -266,15 +266,20 @@ $zita_style .=".single-post article.zita-article .entry-content p:first-child:fi
 }
   }
 
-// if(get_theme_mod('zita_single_post_content_width')=='custom'):
-//     $zita_sngle_cnt_widht = get_theme_mod('zita_sngle_cnt_widht','1200');
-//     $zita_style .="#content.site-content.blog-single.boxed #container,
-//     .boxed #content.site-content.blog-single #container, #content.site-content.blog-single.contentbox #container,
-//     .contentbox #content.site-content.blog-single #container, #content.site-content.blog-single.fullwidthcontained #container,
-//     .fullwidthcontained #content.site-content.blog-single #container{max-width:{$zita_sngle_cnt_widht}px;}";
-// endif;
-  
-
+if(get_theme_mod('zita_single_post_content_width')=='custom'):
+    $zita_sngle_cnt_widht = get_theme_mod('zita_sngle_cnt_widht','1200');
+    $zita_style .="#content.site-content.blog-single.boxed #container,
+    .boxed #content.site-content.blog-single #container, #content.site-content.blog-single.contentbox #container,
+    .contentbox #content.site-content.blog-single #container, #content.site-content.blog-single.fullwidthcontained #container,
+    .fullwidthcontained #content.site-content.blog-single #container{max-width:{$zita_sngle_cnt_widht}px;}";
+endif;
+/******************************************/    
+// Woocommerce single product content width
+/******************************************/
+if((class_exists( 'WooCommerce' )) && (get_theme_mod('zita_single_product_content_width')=='custom')):
+    $zita_product_cnt_widht = get_theme_mod('zita_product_cnt_widht','1200');
+    $zita_style .=".single-product.woocommerce #content.site-content.product #container{max-width:{$zita_product_cnt_widht}px;}";
+endif;
 /************************/    
 // scroll to top button
 /************************/  
