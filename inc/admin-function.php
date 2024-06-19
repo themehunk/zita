@@ -19,7 +19,7 @@ function zita_custom_logo() {
 }
 endif;
 function zita_header_menu_style(){
-          $zita_main_header_layout = get_theme_mod('zita_main_header_layout','mhdrleft');
+          $zita_main_header_layout = get_theme_mod('zita_main_header_layout');
         	if($zita_main_header_layout =='mhdrleftpan' || $zita_main_header_layout =='mhdrrightpan' || $zita_main_header_layout =='mhdminbarleft'|| $zita_main_header_layout =='mhdminbarright' || $zita_main_header_layout =='mhdminbarbtm'){
             $menustyle='accordion';
         	}else{
@@ -529,7 +529,7 @@ if (in_array('zita-pro',$classes)){
 }
 // page-builder-class-add
 function zita_body_classes( $classes ){
-		$zita_default_container = get_theme_mod('zita_default_container');
+		$zita_default_container = get_theme_mod('zita_default_container','boxed');
 		$zita_containerpage = get_theme_mod('zita_containerpage');
 		if ( 'fullwidthstrechched' == $zita_default_container || 'fullwidthstrechched' == $zita_containerpage ){
 			$classes[] = 'zta-page-builder-template';

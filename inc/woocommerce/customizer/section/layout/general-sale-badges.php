@@ -22,7 +22,7 @@ $wp_customize->add_control( 'zita_sale_bagde_style', array(
         'type'    => 'select',
         'choices'    => array(
         'circle'            => __('Circle','zita'),
-        'square'            => __('Square','zita'),
-        'diamond'           => __('Diamond','zita'),         
+        'square'            => __('Square (Pro)','zita'),
+        'diamond'           => __('Diamond (Pro)','zita'),         
         ),
     ));

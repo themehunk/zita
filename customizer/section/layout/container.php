@@ -8,6 +8,17 @@
  * @since       Zita 1.0.0
  */
 // Container Width
+$wp_customize->add_setting('zita_container_pro_more', array(
+    'sanitize_callback' => 'zita_sanitize_text',
+    ));
+$wp_customize->add_control(new Zita_Misc_Control( $wp_customize, 'zita_container_pro_more',
+            array(
+        'section'     => 'zita-conatiner',
+        'type'        => 'custom_message',
+        'description' => sprintf( wp_kses(__( '<a target="_blank" href="%s">Get Pro</a> !', 'zita' ), array(  'a' => array( 'href' => array(),'target' => array() ) ) ), apply_filters('zita_pro_link', zita_get_pro_url( 'https://themehunk.com/zita-pro-wordpress-theme/' ) )),
+         'priority'   =>2,
+    )));
+
 if ( class_exists( 'Zita_WP_Customizer_Range_Value_Control' ) ){
 $wp_customize->add_setting(
             'zita_conatiner_width', array(
@@ -19,7 +30,7 @@ $wp_customize->add_setting(
 $wp_customize->add_control(
             new Zita_WP_Customizer_Range_Value_Control(
                 $wp_customize, 'zita_conatiner_width', array(
-                    'label'       => esc_html__( 'Container Width', 'zita' ),
+                    'label'       => esc_html__( 'Container Width (Pro)', 'zita' ),
                     'section'     => 'zita-conatiner',
                     'type'        => 'range-value',
                     'input_attr'  => array(

@@ -44,7 +44,7 @@ if (class_exists( 'Zita_Font_Selector')){
         $wp_customize->add_control(
             new Zita_Font_Selector(
                 $wp_customize, 'zita_body_font', array(
-        'label' => esc_html__( 'Font family', 'zita' ),
+        'label' => esc_html__( 'Font family (Pro)', 'zita' ),
                     'section'           => 'zita-base-typography-body-font',
                     'priority'          => 1,
                     'type'              => 'select',

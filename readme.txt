@@ -70,7 +70,7 @@ Yes, this theme is tested with latest version of WordPress, you can use it for y
 == Changelog ==
 
 = 1.6.2 =
-Update: Premium features removed.
+Update: Premium fetaures removed.
 
 = 1.6.1 =
 Update: Anchor tag in bottom footer issue resolved.
@@ -294,5 +294,5 @@ Initial release
 
 == Upgrade Notice ==
 
-= 1.6.2 =
-Update: Premium features removed.
+= 1.6.1 =
+Update: Anchor tag in bottom footer issue resolved.
