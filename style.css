@@ -122,7 +122,6 @@ body{
     color: #808285;
     background: #fff;
     font-style: normal;
-    font-size: 15px;
     font-size: 1rem;
     line-height:1.6;
     margin: 0;
@@ -1454,6 +1453,7 @@ display:block
 .zita-widget-content ul,
 .zita-widget-content ol{
   margin: 0;
+  list-style-type: none;
 }
 .boxed.maxwidth .site-content #container {
     padding: 0;
