@@ -226,7 +226,7 @@ function zita_bottom_footer_conetnt_col1($content){ ?>
         'em' => array(),
         'strong' => array(),
       );
-  if(esc_html(get_theme_mod('zita_footer_bottom_col1_texthtml'))!==''){ 
+  if(esc_html(get_theme_mod('zita_footer_bottom_col1_texthtml',''))!=''){ 
    echo wp_kses(get_theme_mod('zita_footer_bottom_col1_texthtml'),$allowed_html);
  }else{?>
 <p class="footer-copyright">&copy;
@@ -239,7 +239,7 @@ function zita_bottom_footer_conetnt_col1($content){ ?>
               <a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php bloginfo( 'name' ); ?></a>
             <span class="powered-by-wordpress">
               <span><?php _e( 'Powered by', 'zita' ); ?></span>
-              <a href="<?php echo esc_url( __( 'https://themehunk.com/', 'zita' ) ); ?>">
+              <a href="<?php echo esc_url( 'https://themehunk.com/' ); ?>">
                 <?php _e( 'ThemeHunk', 'zita' ); ?>
               </a>
             </span>
