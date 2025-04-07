@@ -15,7 +15,9 @@ get_template_part('inc/blog-function');
 get_template_part('inc/blog-single-function');
 get_template_part('inc/default-string');
  //theme-option
-get_template_part('lib/theme-option/class-zita-admin-settings');
+// get_template_part('lib/theme-option/class-zita-admin-settings');
+//th option
+get_template_part( 'lib/th-option/th-option');
 
  //pagination
 get_template_part('inc/pagination/pagination');
