@@ -1,5 +1,5 @@
 == Zita Elementor==
-Contributors: wpzita
+Contributors: ThemeHunk
 Tags: two-columns, right-sidebar, block-patterns, custom-menu, custom-background, editor-style, translation-ready, full-width-template, flexible-header, sticky-post, theme-options, one-column, e-commerce, blog, photography, threaded-comments, custom-colors
 Requires at least: 5.0
 Tested up to: 6.7
