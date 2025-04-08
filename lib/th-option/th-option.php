@@ -10,8 +10,8 @@ add_action('admin_menu', array($this,'menu_tab'));
     add_action( 'wp_ajax_default_home',array($this, 'default_home') );
 }
 function menu_tab() {
-    $menu_title = esc_html__('Zita Options', 'bevro');
-    add_theme_page( esc_html__( 'Zita', 'bevro' ), $menu_title, 'edit_theme_options', 'thunk_started',array($this,'tab_page'));
+    $menu_title = esc_html__('Zita Options', 'zita');
+    add_theme_page( esc_html__( 'Zita', 'zita' ), $menu_title, 'edit_theme_options', 'thunk_started',array($this,'tab_page'));
 
 }
 
@@ -22,7 +22,7 @@ function menu_tab() {
 function admin_scripts( $hook ) {
 if ($hook === 'appearance_page_thunk_started'  ) {
 wp_enqueue_style( 'thunk-started-css', get_template_directory_uri() . '/lib/th-option/assets/css/started.css' );
-wp_enqueue_script('bevro-admin-load', get_template_directory_uri() . '/lib/th-option/assets/js/th-options.js',array( 'jquery', 'updates' ),'1', true);
+wp_enqueue_script('zita-admin-load', get_template_directory_uri() . '/lib/th-option/assets/js/th-options.js',array( 'jquery', 'updates' ),'1', true);
 
 $data = apply_filters(
                     'th_option_localize_vars',
@@ -32,7 +32,7 @@ $data = apply_filters(
 
                         )
                 );
-    wp_localize_script( 'bevro-admin-load', 'THAdmin', $data); 
+    wp_localize_script( 'zita-admin-load', 'THAdmin', $data); 
 
 
 } else {
@@ -44,10 +44,10 @@ $data = apply_filters(
 function tab_constant(){
     $theme_data = wp_get_theme();
     $tab_array = array();
-    $tab_array['header'] = array('theme_brand' => __('ThemeHunk','bevro'),
+    $tab_array['header'] = array('theme_brand' => __('ThemeHunk','zita'),
     'theme_brand_url' => esc_url($theme_data->get( 'AuthorURI' )),
-    'welcome'=>sprintf(esc_html__('Welcome To %1s Theme', 'bevro'), esc_html($theme_data->get( 'Name' )), $theme_data->get( 'Version' ) ),
-    'welcome_desc' => esc_html($theme_data->get( 'Name' ).' is an eCommerce WordPress theme specially made for shopping websites.', 'bevro' ),
+    'welcome'=>sprintf(esc_html__('Welcome To %1s Theme', 'zita'), esc_html($theme_data->get( 'Name' )), $theme_data->get( 'Version' ) ),
+    'welcome_desc' => esc_html($theme_data->get( 'Name' ).' is an eCommerce WordPress theme specially made for shopping websites.', 'zita' ),
     'v'=> 'Version '.esc_html($theme_data->get( 'Version' ))
     );
     return $tab_array;
@@ -57,7 +57,7 @@ function tab_constant(){
 function tab_page() {
 
     if ( ! current_user_can( 'manage_options' ) ) {
-                wp_die( __( 'You do not have sufficient permissions to access this page.','bevro' ) );
+                wp_die( __( 'You do not have sufficient permissions to access this page.','zita' ) );
     }
     $text_array = $this->tab_constant();
     $theme_header =$text_array['header'];
@@ -89,7 +89,7 @@ if(empty($pages)){
 
       $post_id = wp_insert_post(array (
        'post_type' => 'page',
-       'post_title' => __('Home Page','bevro'),
+       'post_title' => __('Home Page','zita'),
        'post_content' => '',
        'post_status' => 'publish',
        'comment_status' => 'closed',   // if you prefer
@@ -137,7 +137,7 @@ function _check_homepage_setup(){
             wp_send_json_error(
               array(
                 'success' => false,
-                'message' => __( 'No plugin specified', 'bevro' ),
+                'message' => __( 'No plugin specified', 'zita' ),
               )
             );
       }
@@ -158,7 +158,7 @@ function _check_homepage_setup(){
       wp_send_json_success(
         array(
           'success' => true,
-          'message' => __( 'Plugin Successfully Activated', 'bevro' ),
+          'message' => __( 'Plugin Successfully Activated', 'zita' ),
         )
       );
 
@@ -173,7 +173,7 @@ function plugin_install_button($plugin){?>
             <div class="th-column">
 
             <div class="title-plugin">
-            <h4><?php echo esc_html( $plugin['plugin_name'] );?> </h4><a class="plugin-detail thickbox open-plugin-details-modal" href="<?php echo esc_url( $plugin['detail_link'] );?>"><?php echo esc_html__( 'Details & Version', 'bevro' );?></a>
+            <h4><?php echo esc_html( $plugin['plugin_name'] );?> </h4><a class="plugin-detail thickbox open-plugin-details-modal" href="<?php echo esc_url( $plugin['detail_link'] );?>"><?php echo esc_html__( 'Details & Version', 'zita' );?></a>
             </div>
             <button data-activated="Activated" data-msg="Activating" data-init="<?php echo esc_attr($plugin['plugin_init']);?>" data-slug="<?php echo esc_attr( $plugin['slug'] );?>" class="button <?php echo esc_attr( $plugin['button_class'] );?>"><?php echo esc_html($plugin['button_txt']);?>                
             </button>
@@ -201,12 +201,12 @@ function plugin_install_button($plugin){?>
 
              if ( is_plugin_active( $plugin_init ) ) {
                    $button_class = 'button disabled '.$slug;
-                   $button_txt = esc_html__( 'Activated', 'bevro' );
+                   $button_txt = esc_html__( 'Activated', 'zita' );
                    $detail_link = $install_url = '';
                 }
 
             if ( ! is_plugin_active( $plugin_init ) ){
-                    $button_txt = esc_html__( 'Install Now', 'bevro' );
+                    $button_txt = esc_html__( 'Install Now', 'zita' );
                     if ( ! $status ) {
                         $install_url = wp_nonce_url(
                             add_query_arg(
@@ -228,7 +228,7 @@ function plugin_install_button($plugin){?>
                             '_wpnonce' => wp_create_nonce('activate-plugin_' . $plugin_init ),
                         ), network_admin_url('plugins.php'));
                         $button_class = 'activate-now button-primary '.$slug;
-                        $button_txt = esc_html__( 'Activate Now', 'bevro' );
+                        $button_txt = esc_html__( 'Activate Now', 'zita' );
                     }
                 }
                 $detail_link = add_query_arg(
