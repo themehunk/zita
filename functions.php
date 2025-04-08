@@ -11,7 +11,7 @@
  * Theme functions and definitions
  */
 if ( ! function_exists( 'zita_setup' ) ) :
-define( 'ZITA_THEME_VERSION','1.0.0');
+define( 'ZITA_THEME_VERSION','1.6.6');
 define( 'ZITA_THEME_DIR', get_template_directory() . '/' );
 define( 'ZITA_THEME_URI', get_template_directory_uri() . '/' );
 define( 'ZITA_THEME_SETTINGS', 'zita-settings' );
@@ -88,6 +88,104 @@ define( 'ZITA_THEME_SETTINGS', 'zita-settings' );
 	    'default-color' => 'f1f1f1',
         );
         add_theme_support( 'custom-background',$args );
+
+		
+        add_theme_support( 'recommend-plugins', array(
+
+			'vayu-blocks' => array(
+			   'name' => esc_html__( 'Vayu Blocks – Gutenberg Blocks for WordPress & WooCommerce', 'zita' ),
+			   'img' => 'icon-128x128.png',
+			   'pro_link' => esc_url(''),
+			   'active_filename' => 'vayu-blocks/vayu-blocks.php',
+			   'pro-plugin' => array('slug'=>'vayu-blocks',
+								   'init'=>'vayu-blocks-pro/vayu-blocks.php',
+								   'admin_link'=>'vayu-blocks',
+								   'docs'=>esc_url('https://themehunk.com/docs/vayu-blocks/'),
+								   )
+		   ),
+		   'zita-site-library' => array(
+					'name' => esc_html__( 'Zita Site Library (Highly Recommended)', 'zita' ),
+					 'img' => 'icon-128x128.png',
+					 'pro_link' => '',
+					'active_filename' => 'zita-site-library/zita-site-library.php',
+				),
+		   'th-advance-product-search' => array(
+			   'name' => esc_html__( 'Th Advance Product Search', 'zita' ),
+			   'img' => 'icon-128x128.gif',
+			   'pro_link' => esc_url('https://themehunk.com/advance-product-search/'),
+			   'active_filename' => 'th-advance-product-search/th-advance-product-search.php',
+			   'pro-plugin' => array('slug'=>'th-advance-product-search-pro',
+								   'init'=>'th-advance-product-search-pro/th-advance-product-search-pro.php',
+									'admin_link'=>'th-advance-product-search-pro',
+									'docs'=>esc_url('https://themehunk.com/docs/th-advance-product-search/'),
+
+								   )
+		   ),
+			'th-all-in-one-woo-cart' => array(
+			   'name' => esc_html__( 'Th All In One Woo Cart', 'zita' ),
+			   'img' => 'icon-128x128.gif',
+			   'pro_link' => esc_url('https://themehunk.com/th-all-in-one-woo-cart/'),
+			   'active_filename' => 'th-all-in-one-woo-cart/th-all-in-one-woo-cart.php',
+			   'pro-plugin' => array('slug'=>'th-all-in-one-woo-cart-pro',
+								   'init'=>'th-all-in-one-woo-cart-pro/th-all-in-one-woo-cart-pro.php',
+									'admin_link'=>'th-all-in-one-woo-cart-pro',
+									'docs'=>esc_url('https://themehunk.com/docs/th-all-in-one-woo-cart/'),
+								   )
+		   ),
+		   'th-product-compare' => array(
+			   'name' => esc_html__( 'Th Product Compare', 'zita' ),
+			   'img' => 'icon-128x128.gif',
+			   'pro_link' => esc_url('https://themehunk.com/th-product-compare/'),
+			   'active_filename' => 'th-product-compare/th-product-compare.php',
+			   'pro-plugin' => array('slug'=>'th-product-compare-pro',
+								   'init'=>'th-product-compare-pro/th-product-compare-pro.php',
+									'admin_link'=>'th-product-compare-pro',
+									'docs'=>esc_url('https://themehunk.com/docs/th-product-compare/'),
+
+								   )
+		   ),
+		   'lead-form-builder' => array(
+			   'name' => esc_html__( 'Lead Form Builder', 'zita' ),
+			   'img' => 'icon-128x128.png',
+			   'pro_link' => esc_url('https://themehunk.com/product/lead-form-builder-pro/'),
+			   'active_filename' => 'lead-form-builder/lead-form-builder.php',
+			   'pro-plugin' => array('slug'=>'lead-form-builder',
+								   'init'=>'lead-form-builder/init.php',
+									 'admin_link'=>'wplf-plugin-menu',
+									 'docs'=>esc_url('https://themehunk.com/docs/lead-form-builder-pro/'),
+								   )
+		   ),
+		   'th-variation-swatches' => array(
+			'name' => esc_html__( 'Th Variation Swatches', 'zita' ),
+			'img' => 'icon-128x128.gif',
+			'pro_link' => esc_url('https://themehunk.com/th-variation-swatches/'),
+			'active_filename' => 'th-variation-swatches/th-variation-swatches.php',
+			'pro-plugin' => array('slug'=>'th-variation-swatches',
+								'init'=>'th-variation-swatches-pro/th-variation-swatches-pro.php',
+								 'admin_link'=>'th-variation-swatches',
+								 'docs'=>esc_url('https://themehunk.com/docs/th-variation-swatches-plugin/'),
+								)
+		),
+		   'wp-popup-builder' => array(
+			   'name' => esc_html__( 'WP Popup Builder – Popup Forms & Newsletter', 'zita' ),
+			   'img' => 'icon-128x128.png',
+			   'pro_link' => esc_url('https://themehunk.com/wp-popup-builder-pro/'),
+			   'active_filename' => 'wp-popup-builder/wp-popup-builder.php',
+			   'pro-plugin' => array('slug'=>'wp-popup-builder',
+								   'init'=>'wp-popup-builder-pro/wp-popup-builder.php',
+								   'admin_link'=>'wppb',
+								   'docs'=>esc_url('https://themehunk.com/docs/wp-popup-builder-pro/'),
+								   )
+		   ),
+ 
+		   'yith-woocommerce-wishlist' => array(
+				'name' => esc_html__( 'YITH WooCommerce Wishlist', 'zita' ),
+				 'img' => 'icon-128x128.gif',
+				 'pro_link' => '',
+				'active_filename' => 'yith-woocommerce-wishlist/init.php',
+			)
+		   
+	   ) );
 	}
 endif;
 add_action( 'after_setup_theme', 'zita_setup' );
