@@ -91,7 +91,12 @@ define( 'ZITA_THEME_SETTINGS', 'zita-settings' );
 
 		
         add_theme_support( 'recommend-plugins', array(
-
+			'zita-site-library' => array(
+					'name' => esc_html__( 'Zita Site Library (Highly Recommended)', 'zita' ),
+					 'img' => 'icon-128x128.png',
+					 'pro_link' => '',
+					'active_filename' => 'zita-site-library/zita-site-library.php',
+				),
 			'vayu-blocks' => array(
 			   'name' => esc_html__( 'Vayu Blocks – Gutenberg Blocks for WordPress & WooCommerce', 'zita' ),
 			   'img' => 'icon-128x128.png',
@@ -103,12 +108,6 @@ define( 'ZITA_THEME_SETTINGS', 'zita-settings' );
 								   'docs'=>esc_url('https://themehunk.com/docs/vayu-blocks/'),
 								   )
 		   ),
-		   'zita-site-library' => array(
-					'name' => esc_html__( 'Zita Site Library (Highly Recommended)', 'zita' ),
-					 'img' => 'icon-128x128.png',
-					 'pro_link' => '',
-					'active_filename' => 'zita-site-library/zita-site-library.php',
-				),
 		   'th-advance-product-search' => array(
 			   'name' => esc_html__( 'Th Advance Product Search', 'zita' ),
 			   'img' => 'icon-128x128.gif',
@@ -176,14 +175,7 @@ define( 'ZITA_THEME_SETTINGS', 'zita-settings' );
 								   'admin_link'=>'wppb',
 								   'docs'=>esc_url('https://themehunk.com/docs/wp-popup-builder-pro/'),
 								   )
-		   ),
- 
-		   'yith-woocommerce-wishlist' => array(
-				'name' => esc_html__( 'YITH WooCommerce Wishlist', 'zita' ),
-				 'img' => 'icon-128x128.gif',
-				 'pro_link' => '',
-				'active_filename' => 'yith-woocommerce-wishlist/init.php',
-			)
+		   )
 		   
 	   ) );
 	}
