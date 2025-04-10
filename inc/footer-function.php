@@ -238,9 +238,9 @@ function zita_bottom_footer_conetnt_col1($content){ ?>
               ?>
               <a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php bloginfo( 'name' ); ?></a>
             <span class="powered-by-wordpress">
-              <span><?php _e( 'Powered by', 'zita' ); ?></span>
+              <span><?php esc_html_e( 'Powered by', 'zita' ); ?></span>
               <a href="<?php echo esc_url( 'https://themehunk.com/' ); ?>">
-                <?php _e( 'ThemeHunk', 'zita' ); ?>
+                <?php esc_html_e( 'ThemeHunk', 'zita' ); ?>
               </a>
             </span>
             </p><!-- .footer-copyright -->

@@ -450,32 +450,32 @@ $class_original='';
 }
 $social.='<ul class="social-icon ' .esc_attr($class_original). ' ">';
 if($f_link = get_theme_mod('social_link_facebook','#')) :
-	$social.='<li><a target="_blank" href="'.esc_url($f_link).'"><i class="fa fa-facebook"></i></a></li>';
+	$social.='<li><a target="_blank" href="'.esc_url($f_link).'" aria-label="facebook"><i class="fa fa-facebook"></i></a></li>';
 endif;
 if($l_link = get_theme_mod('social_link_linkedin','#')) :
-	$social.='<li><a target="_blank" href="'.esc_url($l_link).'"><i class="fa fa-linkedin"></i></a></li>';
+	$social.='<li><a target="_blank" href="'.esc_url($l_link).'" aria-label="linkedin"><i class="fa fa-linkedin"></i></a></li>';
 endif;
 if($p_link = get_theme_mod('social_link_pintrest','#')) :
-	$social.='<li><a target="_blank" href="'.esc_url($p_link).'"><i class="fa fa-pinterest"></i></a></li>';
+	$social.='<li><a target="_blank" href="'.esc_url($p_link).'" aria-label="pintrest"><i class="fa fa-pinterest"></i></a></li>';
 endif;
 if($t_link = get_theme_mod('social_link_twitter','#')) :
-	$social.='<li><a target="_blank" href="'.esc_url($t_link).'"><i class="fa fa-twitter"></i></a></li>';
+	$social.='<li><a target="_blank" href="'.esc_url($t_link).'" aria-label="twitter"><i class="fa fa-twitter"></i></a></li>';
 endif;
 if($insta_link = get_theme_mod('social_link_insta','#')) :
-	$social.='<li><a target="_blank" href="'.esc_url($insta_link).'"><i class="fa fa-instagram"></i></a></li>';
+	$social.='<li><a target="_blank" href="'.esc_url($insta_link).'" aria-label="instagram"><i class="fa fa-instagram"></i></a></li>';
 endif;
 if($tum_link = get_theme_mod('social_link_tumblr','#')) :
-	$social.='<li><a target="_blank" href="'.esc_url($tum_link).'"><i class="fa fa-tumblr"></i></a></li>';
+	$social.='<li><a target="_blank" href="'.esc_url($tum_link).'" aria-label="tumblr"><i class="fa fa-tumblr"></i></a></li>';
 endif;
 if($y_link = get_theme_mod('social_link_youtube','#')) :
-	$social.='<li><a target="_blank" href="'.esc_url($y_link).'"><i class="fa fa-youtube-play"></i></a></li>';
+	$social.='<li><a target="_blank" href="'.esc_url($y_link).'" aria-label="youtube"><i class="fa fa-youtube-play"></i></a></li>';
 endif;
 if($stumb_link = get_theme_mod('social_link_stumbleupon','#')):
-	$social.='<li><a target="_blank" href="'.esc_url($stumb_link).'">
+	$social.='<li><a target="_blank" href="'.esc_url($stumb_link).'" aria-label="stumbleupon">
 	 <i class="fa fa-stumbleupon"></i></a></li>';
 endif;
 if($dribble_link = get_theme_mod('social_link_dribble','#')):
-	$social.='<li><a target="_blank" href="'.esc_url($dribble_link).'">
+	$social.='<li><a target="_blank" href="'.esc_url($dribble_link).'" aria-label="dribble">
 	 <i class="fa fa-dribbble"></i></a></li>';
 endif;
 $social.='</ul>';

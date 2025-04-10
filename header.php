@@ -75,7 +75,7 @@ if ((is_single() || is_page()) || ((class_exists( 'WooCommerce' ))&&(is_woocomme
 }?> <?php if(function_exists('zita_sticky_bottom_header_class')){
 	echo esc_attr(zita_sticky_bottom_header_class($zita_sticky_header_dyn));
 }?> <?php if(function_exists('zita_stick_animation_class')){ echo esc_attr(zita_stick_animation_class());} ?> <?php echo esc_attr(zita_header_transparent_class($zita_transparent_header_dyn));?>">
-<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'zita' ); ?></a>
+<a class="skip-link screen-reader-text" href="#content" aria-label="Skip Content"><?php esc_html_e( 'Skip to content', 'zita' ); ?></a>
 	<?php if($zita_main_header_layout=='mhdrrightpan' || $zita_main_header_layout=='mhdrleftpan'):?>
 		<div class="header-pan-icon">
 		<span class="pan-icon">

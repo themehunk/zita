@@ -71,7 +71,7 @@ $wp_customize->add_setting('zita_footer_bottom_col1_texthtml', array(
         
     ));
 $wp_customize->add_control('zita_footer_bottom_col1_texthtml', array(
-        'label'    => __('Text', 'zita'),
+        'label'    => esc_html__('Text', 'zita'),
         'section'  => 'zita-bottom-footer',
         'settings' => 'zita_footer_bottom_col1_texthtml',
          'type'    => 'textarea',

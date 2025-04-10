@@ -563,7 +563,7 @@ function zita_before_blog_feature_img_markup(){?>
 <?php echo apply_filters( 'zita_post_date_box','');?>
 <?php if ((function_exists('has_post_thumbnail')) && (has_post_thumbnail())){?>
 	    <div class="post-img">
-			<a href="<?php the_permalink() ?>"> <?php the_post_thumbnail('post_thumbnail_loop'); ?></a>
+			<a href="<?php the_permalink() ?>"> <?php wp_kses_post(the_post_thumbnail('post_thumbnail_loop')); ?></a>
 		</div> 		
 		<?php } ?> 
  </div> 
