@@ -17,138 +17,6 @@ if ( ! function_exists( 'zita_admin_scripts' ) ) :
 endif;
 add_action( 'admin_enqueue_scripts', 'zita_admin_scripts' );
 
-$prefix='zita_';
-if(function_exists('zita_sticky_page_array')){
-    $sticky_arry = zita_sticky_page_array($prefix);
-}else{
-    $sticky_arry = null;
-
-}
-$meta_boxes = array(
-      array(
-        'id' => 'zita-meta-box',
-        'title' => esc_html__('Zita Setting','zita'),
-        'pages' => array('page','post','product'),// custom post type array('page','post', 'link')
-        'context' => 'side',
-        'priority' => 'low',
-        'fields' => array(
-            array(
-                'name' => esc_html__('Sidebar','zita'),
-                'id' => $prefix . 'sidebar_dyn',
-                'type' => 'select',
-                'std' => 'default',
-                'options' => array( 
-                    array("value" => 'default',"name" => esc_html__('Customizer Setting','zita')),
-                    array("value" => 'left',"name" =>  esc_html__('Left Sidebar','zita')),
-                    array("value" => 'right',"name" => esc_html__('Right Sidebar','zita')),
-                	array("value" => 'no-sidebar',"name" => esc_html__('No Sidebar','zita')),
-                )
-            ),
-            array(
-                'name' => esc_html__('Content Layout','zita'),
-                'id' => $prefix . 'content_dyn',
-                'type' => 'select',
-                'std' => 'default',
-                'options' => array( 
-                    array("value" => 'default',"name" => esc_html__('Customizer Setting','zita')),
-                    array("value" => 'boxed',"name" => esc_html__('Boxed','zita')),
-                    array("value" => 'contentbox',"name" => esc_html__('Content Boxed','zita')),
-                    array("value" => 'fullwidthcontained',"name" => esc_html__('Full Width/Contained','zita')),
-                    array("value" => 'fullwidthstrechched',"name" => esc_html__('Full Width/Strectched','zita')),
-                )
-            ),
-            array(
-                'name' => esc_html__('Disable section','zita'),
-                'id' => $prefix . 'disable_section_dyn',
-                'type' => '',
-                   
-            ),
-            array(
-                'name' => '',
-                'id' => $prefix . 'disable_above_header_dyn',
-                'type' => 'checkbox',
-                'nameslug' => esc_html__('Disable Above Header','zita'),
-                   
-            ),
-            array(
-                'name' => '',
-                'id' => $prefix . 'disable_main_header_dyn',
-                'type' => 'checkbox',
-                'nameslug' => esc_html__('Disable Main Header','zita'),
-                   
-            ),
-            array(
-                'name' => '',
-                'id' => $prefix . 'disable_bottom_header_dyn',
-                'type' => 'checkbox',
-                'nameslug' => esc_html__('Disable Bottom Header','zita'),
-                   
-            ),
-             array(
-                'name' => '',
-                'id' => $prefix . 'disable_title_dyn',
-                'type' => 'checkbox',
-                'nameslug' => esc_html__('Disable title','zita'),
-                   
-            ),
-             array(
-                'name' => '',
-                'id' => $prefix . 'disable_feature_image_dyn',
-                'type' => 'checkbox',
-                'nameslug' => esc_html__('Disable Feature Image','zita'),
-                   
-            ),
-             array(
-                'name' => '',
-                'id' => $prefix . 'disable_above_footer_dyn',
-                'type' => 'checkbox',
-                'nameslug' => esc_html__('Disable Above Footer','zita'),
-                   
-            ),
-             array(
-                'name' => '',
-                'id' => $prefix . 'disable_footer_widget_dyn',
-                'type' => 'checkbox',
-                'nameslug' => esc_html__('Disable Footer Widget Area','zita'),
-                   
-            ),
-             array(
-                'name' => '',
-                'id' => $prefix . 'disable_bottom_footer_dyn',
-                'type' => 'checkbox',
-                'nameslug' => esc_html__('Disable Bottom Footer','zita'),
-                   
-            ),
-             array(
-                'name' => '',
-                'id' => $prefix . 'disable_page_header_dyn',
-                'type' => 'checkbox',
-                'nameslug' => esc_html__('Disable Page Header','zita'),
-                   
-            ),
-            array(
-                'name' => esc_html__('Transparent Header','zita'),
-                'id' => $prefix . 'transparent_header_dyn',
-                'type' => 'select',
-                'std' => 'default',
-                'options' => array( 
-                    array("value" => 'default',"name"  => esc_html__('Customizer Setting','zita')),
-                    array("value" => 'enable',"name"   => esc_html__('Enable','zita')),
-                    array("value" => 'disable',"name"  => esc_html__('Disable','zita')),
-                    
-                )
-            ),
-
-           $sticky_arry
-            
-        )
-    )
-
-);
-
-foreach ($meta_boxes as $meta_box) {
-    $my_box = new zita_thMetaDataClass($meta_box);
-}
 
 class zita_thMetaDataClass {
  
@@ -260,3 +128,139 @@ class zita_thMetaDataClass {
         }
     }
 }
+
+function zita_register_meta_boxes(){
+$prefix='zita_';
+if(function_exists('zita_sticky_page_array')){
+    $sticky_arry = zita_sticky_page_array($prefix);
+}else{
+    $sticky_arry = null;
+
+}
+$meta_boxes = array(
+      array(
+        'id' => 'zita-meta-box',
+        'title' => esc_html__('Zita Setting','zita'),
+        'pages' => array('page','post','product'),// custom post type array('page','post', 'link')
+        'context' => 'side',
+        'priority' => 'low',
+        'fields' => array(
+            array(
+                'name' => esc_html__('Sidebar','zita'),
+                'id' => $prefix . 'sidebar_dyn',
+                'type' => 'select',
+                'std' => 'default',
+                'options' => array( 
+                    array("value" => 'default',"name" => esc_html__('Customizer Setting','zita')),
+                    array("value" => 'left',"name" =>  esc_html__('Left Sidebar','zita')),
+                    array("value" => 'right',"name" => esc_html__('Right Sidebar','zita')),
+                    array("value" => 'no-sidebar',"name" => esc_html__('No Sidebar','zita')),
+                )
+            ),
+            array(
+                'name' => esc_html__('Content Layout','zita'),
+                'id' => $prefix . 'content_dyn',
+                'type' => 'select',
+                'std' => 'default',
+                'options' => array( 
+                    array("value" => 'default',"name" => esc_html__('Customizer Setting','zita')),
+                    array("value" => 'boxed',"name" => esc_html__('Boxed','zita')),
+                    array("value" => 'contentbox',"name" => esc_html__('Content Boxed','zita')),
+                    array("value" => 'fullwidthcontained',"name" => esc_html__('Full Width/Contained','zita')),
+                    array("value" => 'fullwidthstrechched',"name" => esc_html__('Full Width/Strectched','zita')),
+                )
+            ),
+            array(
+                'name' => esc_html__('Disable section','zita'),
+                'id' => $prefix . 'disable_section_dyn',
+                'type' => '',
+                   
+            ),
+            array(
+                'name' => '',
+                'id' => $prefix . 'disable_above_header_dyn',
+                'type' => 'checkbox',
+                'nameslug' => esc_html__('Disable Above Header','zita'),
+                   
+            ),
+            array(
+                'name' => '',
+                'id' => $prefix . 'disable_main_header_dyn',
+                'type' => 'checkbox',
+                'nameslug' => esc_html__('Disable Main Header','zita'),
+                   
+            ),
+            array(
+                'name' => '',
+                'id' => $prefix . 'disable_bottom_header_dyn',
+                'type' => 'checkbox',
+                'nameslug' => esc_html__('Disable Bottom Header','zita'),
+                   
+            ),
+             array(
+                'name' => '',
+                'id' => $prefix . 'disable_title_dyn',
+                'type' => 'checkbox',
+                'nameslug' => esc_html__('Disable title','zita'),
+                   
+            ),
+             array(
+                'name' => '',
+                'id' => $prefix . 'disable_feature_image_dyn',
+                'type' => 'checkbox',
+                'nameslug' => esc_html__('Disable Feature Image','zita'),
+                   
+            ),
+             array(
+                'name' => '',
+                'id' => $prefix . 'disable_above_footer_dyn',
+                'type' => 'checkbox',
+                'nameslug' => esc_html__('Disable Above Footer','zita'),
+                   
+            ),
+             array(
+                'name' => '',
+                'id' => $prefix . 'disable_footer_widget_dyn',
+                'type' => 'checkbox',
+                'nameslug' => esc_html__('Disable Footer Widget Area','zita'),
+                   
+            ),
+             array(
+                'name' => '',
+                'id' => $prefix . 'disable_bottom_footer_dyn',
+                'type' => 'checkbox',
+                'nameslug' => esc_html__('Disable Bottom Footer','zita'),
+                   
+            ),
+             array(
+                'name' => '',
+                'id' => $prefix . 'disable_page_header_dyn',
+                'type' => 'checkbox',
+                'nameslug' => esc_html__('Disable Page Header','zita'),
+                   
+            ),
+            array(
+                'name' => esc_html__('Transparent Header','zita'),
+                'id' => $prefix . 'transparent_header_dyn',
+                'type' => 'select',
+                'std' => 'default',
+                'options' => array( 
+                    array("value" => 'default',"name"  => esc_html__('Customizer Setting','zita')),
+                    array("value" => 'enable',"name"   => esc_html__('Enable','zita')),
+                    array("value" => 'disable',"name"  => esc_html__('Disable','zita')),
+                    
+                )
+            ),
+
+           $sticky_arry
+            
+        )
+    )
+
+);
+
+foreach ($meta_boxes as $meta_box) {
+    $my_box = new zita_thMetaDataClass($meta_box);
+}
+}
+add_action('init','zita_register_meta_boxes');

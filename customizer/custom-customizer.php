@@ -414,7 +414,7 @@ class Zita_Widegt_Redirect extends WP_Customize_Control {
             default:
 
             case 'heading':
-                echo '<span class="customize-control-title">' .$this->title. '</span>';
+                echo '<span class="customize-control-title">' .esc_html($this->title). '</span>';
                 break;
 
             case 'custom_message' :

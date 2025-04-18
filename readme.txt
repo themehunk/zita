@@ -2,8 +2,8 @@
 Contributors: ThemeHunk
 Tags: two-columns, right-sidebar, block-patterns, custom-menu, custom-background, editor-style, translation-ready, full-width-template, flexible-header, sticky-post, theme-options, one-column, e-commerce, blog, photography, threaded-comments, custom-colors
 Requires at least: 5.0
-Tested up to: 6.7
-Stable tag: 1.6.6
+Tested up to: 6.8
+Stable tag: 1.6.5
 License: GPLv3 or later
 License URL: https://www.gnu.org/licenses/gpl-3.0.en.html
 
@@ -69,11 +69,10 @@ Yes, this theme is tested with latest version of WordPress, you can use it for y
 
 == Changelog ==
 
-= 1.6.6 =
-Update: Theme Option chnaged.
-
 = 1.6.5 =
 Update: get_search_form() replaced custom form.
+Update: Theme Option chnaged.
+Update: Tested with WordPress 6.8.
 
 = 1.6.4 =
 New: New theme.json version 3 added.
@@ -306,5 +305,7 @@ Initial release
 
 == Upgrade Notice ==
 
-= 1.6.6 =
+= 1.6.5 =
+Update: get_search_form() replaced custom form.
 Update: Theme Option chnaged.
+Update: Tested with WordPress 6.8.
