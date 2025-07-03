@@ -25,7 +25,6 @@ get_template_part('inc/default-string');
 get_template_part( 'lib/th-option/th-option');
 
  //pagination
-get_template_part('inc/pagination/pagination');
 get_template_part('inc/pagination/infinite-scroll');
  //customizer
 get_template_part('customizer/extend-customizer/class-zita-wp-customize-panel');
@@ -48,7 +47,6 @@ get_template_part('inc/typography-style');
 get_template_part('lib/page-meta-box/zita-page-meta-box');
 //woocommerce
 get_template_part('inc/woocommerce/woocommerce-config');
-get_template_part('inc/woocommerce/woocommerce-ajax');
 // Probutton
 /******************************/
 get_template_part('customizer/pro-button/class-customize');

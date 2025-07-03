@@ -46,7 +46,8 @@ jQuery.ajax({
                 authorid: author,
                 yearid: year,
                 monthid: month,
-                action:'zita_ajax_script_load_more'
+                action:'zita_ajax_script_load_more',
+                security: my_ajax_object.ajax_nonce //
             },
     }).success( function(response){ 
       

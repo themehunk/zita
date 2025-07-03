@@ -179,8 +179,8 @@ $zitapro_menu_effect = get_theme_mod( 'zitapro_menu_effect','linkeffect-none');
     <?php } ?>
     <?php 
     if($zita_main_header_layout!=='mhdminbarleft' && $zita_main_header_layout!=='mhdminbarright' && $zita_main_header_layout!=='mhdminbarbtm'){
-    if(class_exists( 'WooCommerce' )){    
-    if(get_theme_mod('zita_woo_cart_visibility')=='display-all'){?>
+    if(class_exists( 'WooCommerce' )){
+    if(get_theme_mod('zita_woo_cart_visibility','display-all')=='display-all'){?>
     <div class="zita_woo_cart">
     <?php do_action( 'zita_cart_count' ); 
        do_action( 'zita_cart' );?>
@@ -189,8 +189,7 @@ $zitapro_menu_effect = get_theme_mod( 'zitapro_menu_effect','linkeffect-none');
     if(get_theme_mod('zita_woo_cart_visibility')=='disable-mobile'){
        if (!wp_is_mobile()):?>
         <div class="zita_woo_cart">
-       <?php do_action( 'zita_cart_count' ); 
-       do_action( 'zita_cart' );?>
+       <?php do_action( 'zita_cart_total_item' );  ?>
         </div>
        <?php endif;
      }
