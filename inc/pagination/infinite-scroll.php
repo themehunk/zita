@@ -36,41 +36,56 @@ add_action( 'wp_enqueue_scripts', 'zita_ajax_enqueue_script' );
  */
 function zita_ajax_enqueue_script(){
 wp_enqueue_script( 'script_ajax', get_parent_theme_file_uri() . '/inc/pagination/js/infinite-scroll.js', array( 'jquery' ), '0.1', true );
+wp_localize_script('script_ajax', 'my_ajax_object', [
+        'ajax_url' => admin_url('admin-ajax.php'),
+        'ajax_nonce' => wp_create_nonce('zita_load_more_nonce'),
+    ]);
 }
-function zita_ajax_script_load_more(){
-zita_scroll($_POST,'infinite');
-}
-function zita_scroll($post,$scroll){
-$offset = $_POST["offset"];
-$paged  = $_POST["paged"];
-header("Content-Type: text/html");
-$args = array(
-      'post_type'       => 'post',
-      'post_status'     => 'publish',
-      'paged'           =>  $paged,
-      'cat'             =>  $_POST['catslug'],  
-      'author'          => $_POST['authorid'],
-      'date_query'      => array(
-                array(
-                    
-                        # Setting date to array above allows to call specific values within that date    
-                        'year'  =>  $_POST['yearid'],
-                        'month' =>  $_POST['monthid'],
-                   
-                    
-                ),
-            ),
 
-      );  
-$loop = new WP_Query($args);
-  if ( $loop->have_posts() ){
-      // Start the post formate loop.
-      while ($loop->have_posts()) : $loop->the_post();
-      get_template_part( 'template-parts/content', get_post_format() );
-      endwhile;
-      // Start the post formate grid.
-      wp_reset_postdata();
+function zita_ajax_script_load_more() {
+    check_ajax_referer('zita_load_more_nonce', 'security'); // 🔐 verify nonce
+
+    $offset = isset($_POST["offset"]) ? intval($_POST["offset"]) : 0;
+    $paged  = isset($_POST["paged"]) ? intval($_POST["paged"]) : 1;
+    $ppp    = isset($_POST["ppp"]) ? intval($_POST["ppp"]) : 10;
+
+    $cat    = isset($_POST["catslug"]) ? sanitize_text_field($_POST["catslug"]) : '';
+    $author = isset($_POST["authorid"]) ? intval($_POST["authorid"]) : 0;
+    $year   = isset($_POST["yearid"]) ? intval($_POST["yearid"]) : 0;
+    $month  = isset($_POST["monthid"]) ? intval($_POST["monthid"]) : 0;
+
+    $args = [
+        'post_type'      => 'post',
+        'post_status'    => 'publish',
+        'posts_per_page' => $ppp,
+        'paged'          => $paged,
+    ];
+
+    if ($cat) {
+        $args['category_name'] = $cat;
     }
-    // If no content, include the "No posts found" template.
-exit;
+    if ($author) {
+        $args['author'] = $author;
+    }
+    if ($year || $month) {
+        $args['date_query'] = [
+            [
+                'year'  => $year ?: null,
+                'month' => $month ?: null,
+            ]
+        ];
+    }
+
+    $loop = new WP_Query($args);
+
+    if ($loop->have_posts()) {
+        while ($loop->have_posts()) : $loop->the_post();
+            get_template_part('template-parts/content', get_post_format());
+        endwhile;
+    }
+
+    wp_reset_postdata();
+    wp_die(); // use wp_die for ajax
 }
+add_action('wp_ajax_nopriv_zita_ajax_script_load_more', 'zita_ajax_script_load_more');
+add_action('wp_ajax_zita_ajax_script_load_more', 'zita_ajax_script_load_more');

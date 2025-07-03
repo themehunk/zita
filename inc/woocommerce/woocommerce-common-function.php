@@ -175,35 +175,26 @@ function zita_custom_product_searchform( $form ){
 function zita_is_woocommerce_activated(){
   return class_exists( 'woocommerce' ) ? true : false;
 }
-if ( ! function_exists( 'zita_cart_total_item' ) ){
+if (!function_exists('zita_cart_total_item')) {
   /**
    * Cart Link
    * Displayed a link to the cart including the number of items present and the cart total
    */
- function zita_cart_total_item(){
-   global $woocommerce; 
-   $zita_woo_cart_disable = get_theme_mod('zita_woo_cart_disable','icon'); 
-   $ordertotal       = wp_kses_data( $woocommerce->cart->get_total() );
-   $productadd       = wp_kses_data($woocommerce->cart->cart_contents_count);
-  ?>
-  
-  <a href="<?php echo esc_url(wc_get_cart_url()); ?>" class="cart-contents" >
-    <?php if($zita_woo_cart_disable =='icon'){?>
-    <i class="fa fa-shopping-basket"></i>
-    <?php } elseif($zita_woo_cart_disable =='icon+cartcount'){?>
-    <i class="fa fa-shopping-basket"></i>
-    <span class="cart-crl"><?php echo esc_html($woocommerce->cart->cart_contents_count); ?></span>
-    <?php } elseif($zita_woo_cart_disable =='icon+total'){?>
-    <i class="fa fa-shopping-basket"></i>
-    <span class="cart-total"><?php echo esc_html($ordertotal);?></span>  
-    <?php } else { ?>
-     <i class="fa fa-shopping-basket"></i>
-    <span class="cart-crl"><?php echo esc_html($woocommerce->cart->cart_contents_count); ?></span>
-    <span class="cart-total"><?php echo esc_html($ordertotal);?></span>
-    <?php } ?>
-  </a>
- 
-  <?php }
+  function zita_cart_total_item()
+  {
+if (shortcode_exists('taiowc')) {
+    $shortcode = 'taiowc';
+} elseif (shortcode_exists('taiowcp')) {
+    $shortcode = 'taiowcp';
+} else {
+    return;
+}
+?>
+<div class="cart-contents">
+    <?php echo do_shortcode("[$shortcode]"); ?>
+</div>
+ <?php }
+  add_action('zita_cart_total_item', 'zita_cart_total_item');
 }
 if ( ! function_exists( 'zita_cart_count_product' ) ){
   function zita_cart_count_product(){

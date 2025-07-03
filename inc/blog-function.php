@@ -503,9 +503,6 @@ $zita_load_more_txt = get_theme_mod( 'zita_load_more_txt',__( 'More Post', 'zita
 if($zita_blog_post_pagination=='num'){
 the_posts_pagination();
 }
-elseif($zita_blog_post_pagination=='click'){	
-zita_load_more_button('',$zita_load_more_txt,'');
-}
 elseif($zita_blog_post_pagination=='scroll'){
 zita_scrolling_ajax();
 }
