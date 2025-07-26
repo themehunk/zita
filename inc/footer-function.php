@@ -370,7 +370,13 @@ return false;
 if ( ! function_exists( 'zita_footer_widget_markup' ) ){	
 function zita_footer_widget_markup(){ ?>
 <?php 
-$zita_bottom_footer_widget_layout  = get_theme_mod( 'zita_bottom_footer_widget_layout','ft-wgt-none');
+$zita_bottom_footer_widget_layout  = get_theme_mod( 'zita_bottom_footer_widget_layout','ft-wgt-four');
+$any_footer_widget_active = is_active_sidebar('footer-1')
+    || is_active_sidebar('footer-2')
+    || is_active_sidebar('footer-3')
+    || is_active_sidebar('footer-4');
+
+    if ((is_customize_preview() && $zita_bottom_footer_widget_layout !== 'ft-wgt-none' )|| ($any_footer_widget_active && $zita_bottom_footer_widget_layout !== 'ft-wgt-none')){
 ?>	
 <div class="widget-footer">
 		 	<div class="widget-footer-bar <?php echo esc_attr($zita_bottom_footer_widget_layout);?>">
@@ -380,7 +386,7 @@ $zita_bottom_footer_widget_layout  = get_theme_mod( 'zita_bottom_footer_widget_l
 		             <div class="widget-footer-col1">
 		             	<?php if( is_active_sidebar('footer-1' ) ){
                                        dynamic_sidebar('footer-1' );
-                             }else{?>
+                             }elseif(is_customize_preview()){?>
      	                     <a href="<?php echo esc_url( admin_url( 'widgets.php' ) ); ?>"><?php esc_html_e( 'Add Widget', 'zita' );?></a>
                           <?php }?>
                       </div>
@@ -388,13 +394,13 @@ $zita_bottom_footer_widget_layout  = get_theme_mod( 'zita_bottom_footer_widget_l
                       	<div class="widget-footer-col1">
 		             	<?php if( is_active_sidebar('footer-1' ) ){
                                        dynamic_sidebar('footer-1' );
-                             }else{?>
+                             }elseif(is_customize_preview()){?>
      	                     <a href="<?php echo esc_url( admin_url( 'widgets.php' ) ); ?>"><?php esc_html_e( 'Add Widget', 'zita' );?></a>
                           <?php }?>
                       </div>
 		             <div class="widget-footer-col2"><?php if( is_active_sidebar('footer-2' ) ){
                                        dynamic_sidebar('footer-2' );
-                             }else{?>
+                             }elseif(is_customize_preview()){?>
      	                     <a href="<?php echo esc_url( admin_url( 'widgets.php' ) ); ?>"><?php esc_html_e( 'Add Widget', 'zita' );?></a>
                           <?php }?>
                       </div>
@@ -402,19 +408,19 @@ $zita_bottom_footer_widget_layout  = get_theme_mod( 'zita_bottom_footer_widget_l
                       	<div class="widget-footer-col1">
 		             	<?php if( is_active_sidebar('footer-1' ) ){
                                        dynamic_sidebar('footer-1' );
-                             }else{?>
+                             }elseif(is_customize_preview()){?>
      	                     <a href="<?php echo esc_url( admin_url( 'widgets.php' ) ); ?>"><?php esc_html_e( 'Add Widget', 'zita' );?></a>
                           <?php }?>
                       </div>
 		             <div class="widget-footer-col2"><?php if( is_active_sidebar('footer-2' ) ){
                                        dynamic_sidebar('footer-2' );
-                             }else{?>
+                             }elseif(is_customize_preview()){?>
      	                     <a href="<?php echo esc_url( admin_url( 'widgets.php' ) ); ?>"><?php esc_html_e( 'Add Widget', 'zita' );?></a>
                           <?php }?>
                       </div>
 		             <div class="widget-footer-col3"><?php if( is_active_sidebar('footer-3' ) ){
                                        dynamic_sidebar('footer-3' );
-                             }else{?>
+                             }elseif(is_customize_preview()){?>
      	                     <a href="<?php echo esc_url( admin_url( 'widgets.php' ) ); ?>"><?php esc_html_e( 'Add Widget', 'zita' );?></a>
                           <?php }?>
                       </div>
@@ -422,25 +428,25 @@ $zita_bottom_footer_widget_layout  = get_theme_mod( 'zita_bottom_footer_widget_l
                       	<div class="widget-footer-col1">
 		             	<?php if( is_active_sidebar('footer-1' ) ){
                                        dynamic_sidebar('footer-1' );
-                             }else{?>
+                             }elseif(is_customize_preview()){?>
      	                     <a href="<?php echo esc_url( admin_url( 'widgets.php' ) ); ?>"><?php esc_html_e( 'Add Widget', 'zita' );?></a>
                           <?php }?>
                       </div>
 		             <div class="widget-footer-col2"><?php if( is_active_sidebar('footer-2' ) ){
                                        dynamic_sidebar('footer-2' );
-                             }else{?>
+                             }elseif(is_customize_preview()){?>
      	                     <a href="<?php echo esc_url( admin_url( 'widgets.php' ) ); ?>"><?php esc_html_e( 'Add Widget', 'zita' );?></a>
                           <?php }?>
                       </div>
 		             <div class="widget-footer-col3"><?php if( is_active_sidebar('footer-3' ) ){
                                        dynamic_sidebar('footer-3' );
-                             }else{?>
+                             }elseif(is_customize_preview()){?>
      	                     <a href="<?php echo esc_url( admin_url( 'widgets.php' ) ); ?>"><?php esc_html_e( 'Add Widget', 'zita' );?></a>
                           <?php }?>
                       </div>
 		             <div class="widget-footer-col4"><?php if( is_active_sidebar('footer-4' ) ){
                                        dynamic_sidebar('footer-4' );
-                             }else{?>
+                             }elseif(is_customize_preview()){?>
      	                     <a href="<?php echo esc_url( admin_url( 'widgets.php' ) ); ?>"><?php esc_html_e( 'Add Widget', 'zita' );?></a>
                           <?php }?>
                       </div>
@@ -448,19 +454,19 @@ $zita_bottom_footer_widget_layout  = get_theme_mod( 'zita_bottom_footer_widget_l
                   	<div class="widget-footer-col1">
 		             	<?php if( is_active_sidebar('footer-1' ) ){
                                        dynamic_sidebar('footer-1' );
-                             }else{?>
+                             }elseif(is_customize_preview()){?>
      	                     <a href="<?php echo esc_url( admin_url( 'widgets.php' ) ); ?>"><?php esc_html_e( 'Add Widget', 'zita' );?></a>
                           <?php }?>
                       </div>
 		             <div class="widget-footer-col2"><?php if( is_active_sidebar('footer-2' ) ){
                                        dynamic_sidebar('footer-2' );
-                             }else{?>
+                             }elseif(is_customize_preview()){?>
      	                     <a href="<?php echo esc_url( admin_url( 'widgets.php' ) ); ?>"><?php esc_html_e( 'Add Widget', 'zita' );?></a>
                           <?php }?>
                       </div>
 		             <div class="widget-footer-col3"><?php if( is_active_sidebar('footer-3' ) ){
                                        dynamic_sidebar('footer-3' );
-                             }else{?>
+                             }elseif(is_customize_preview()){?>
      	                     <a href="<?php echo esc_url( admin_url( 'widgets.php' ) ); ?>"><?php esc_html_e( 'Add Widget', 'zita' );?></a>
                           <?php }?>
                       </div>
@@ -468,19 +474,19 @@ $zita_bottom_footer_widget_layout  = get_theme_mod( 'zita_bottom_footer_widget_l
                        <div class="widget-footer-col1">
 		             	<?php if( is_active_sidebar('footer-1' ) ){
                                        dynamic_sidebar('footer-1' );
-                             }else{?>
+                             }elseif(is_customize_preview()){?>
      	                     <a href="<?php echo esc_url( admin_url( 'widgets.php' ) ); ?>"><?php esc_html_e( 'Add Widget', 'zita' );?></a>
                           <?php }?>
                       </div>
 		             <div class="widget-footer-col2"><?php if( is_active_sidebar('footer-2' ) ){
                                        dynamic_sidebar('footer-2' );
-                             }else{?>
+                             }elseif(is_customize_preview()){?>
      	                     <a href="<?php echo esc_url( admin_url( 'widgets.php' ) ); ?>"><?php esc_html_e( 'Add Widget', 'zita' );?></a>
                           <?php }?>
                       </div>
 		             <div class="widget-footer-col3"><?php if( is_active_sidebar('footer-3' ) ){
                                        dynamic_sidebar('footer-3' );
-                             }else{?>
+                             }elseif(is_customize_preview()){?>
      	                     <a href="<?php echo esc_url( admin_url( 'widgets.php' ) ); ?>"><?php esc_html_e( 'Add Widget', 'zita' );?></a>
                           <?php }?>
                       </div>
@@ -488,13 +494,13 @@ $zita_bottom_footer_widget_layout  = get_theme_mod( 'zita_bottom_footer_widget_l
                   	<div class="widget-footer-col1">
 		             	<?php if( is_active_sidebar('footer-1' ) ){
                                        dynamic_sidebar('footer-1' );
-                             }else{?>
+                             }elseif(is_customize_preview()){?>
      	                     <a href="<?php echo esc_url( admin_url( 'widgets.php' ) ); ?>"><?php esc_html_e( 'Add Widget', 'zita' );?></a>
                           <?php }?>
                       </div>
 		             <div class="widget-footer-col2"><?php if( is_active_sidebar('footer-2' ) ){
                                        dynamic_sidebar('footer-2' );
-                             }else{?>
+                             }elseif(is_customize_preview()){?>
      	                     <a href="<?php echo esc_url( admin_url( 'widgets.php' ) ); ?>"><?php esc_html_e( 'Add Widget', 'zita' );?></a>
                           <?php }?>
                       </div>
@@ -502,13 +508,13 @@ $zita_bottom_footer_widget_layout  = get_theme_mod( 'zita_bottom_footer_widget_l
                   	<div class="widget-footer-col1">
 		             	<?php if( is_active_sidebar('footer-1' ) ){
                                        dynamic_sidebar('footer-1' );
-                             }else{?>
+                             }elseif(is_customize_preview()){?>
      	                     <a href="<?php echo esc_url( admin_url( 'widgets.php' ) ); ?>"><?php esc_html_e( 'Add Widget', 'zita' );?></a>
                           <?php }?>
                       </div>
 		             <div class="widget-footer-col2"><?php if( is_active_sidebar('footer-2' ) ){
                                        dynamic_sidebar('footer-2' );
-                             }else{?>
+                             }elseif(is_customize_preview()){?>
      	                     <a href="<?php echo esc_url( admin_url( 'widgets.php' ) ); ?>"><?php esc_html_e( 'Add Widget', 'zita' );?></a>
                           <?php }?>
                       </div>
@@ -518,6 +524,7 @@ $zita_bottom_footer_widget_layout  = get_theme_mod( 'zita_bottom_footer_widget_l
 	</div>
 </div>
 <?php }
+}
 }
 add_action( 'zita_widget_footer', 'zita_footer_widget_markup' );
 /***********************************************************
@@ -536,7 +543,7 @@ function zita_footer_abv_post_meta($page_post_meta_set=''){
 //Widget footer
 if( ! function_exists( 'zita_footer_widget_post_meta' ) ){
 function zita_footer_widget_post_meta($page_post_meta_set=''){
-   $zita_bottom_footer_widget_layout = get_theme_mod('zita_bottom_footer_widget_layout','ft-wgt-none');
+   $zita_bottom_footer_widget_layout = get_theme_mod('zita_bottom_footer_widget_layout','ft-wgt-four');
     if($page_post_meta_set!=='on'){
         if($zita_bottom_footer_widget_layout!=='ft-wgt-none'):
              zita_widget_footer();
