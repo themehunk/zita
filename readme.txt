@@ -71,6 +71,7 @@ Yes, this theme is tested with latest version of WordPress, you can use it for y
 
 = 1.6.7 =
 Update: Widget Footer display condition added.
+Update: WorkSans-Medium & Nunito-Medim font added.
 
 = 1.6.6 =
 Update: New cart plugin integrated.
@@ -312,7 +313,6 @@ Initial release
 
 == Upgrade Notice ==
 
-= 1.6.5 =
-Update: get_search_form() replaced custom form.
-Update: Theme Option chnaged.
-Update: Tested with WordPress 6.8.
+= 1.6.7 =
+Update: Widget Footer display condition added.
+Update: WorkSans-Medium & Nunito-Medim font added.
