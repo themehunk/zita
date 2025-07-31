@@ -26,6 +26,7 @@ $zita_containerarchive); ?>">
 <div id="container" class="site-container <?php echo esc_attr(zita_sidebar_layout());?>  <?php echo esc_attr($zita_blog_post_highlight_layout_class);?> <?php echo esc_attr($zita_blog_post_sixth_highlight_layout_class);?> <?php echo esc_attr($zita_blog_post_grid_layout_class);?> <?php echo esc_attr($zita_blog_post_add_space_layout_class);?> <?php echo esc_attr($zita_blog_post_remove_space_image_class);?> <?php echo esc_attr($blog_layout_classes);?> ">
 	<div id="primary" class="main content-area">
 		<main id="main" class="site-main" role="main">
+			<?php zita_display_customizer_shortcut('zita-blog-archive'); ?>
 			<div class="main-content-row <?php echo esc_attr($zita_blog_post_masnory_class);?>">
 			<?php
 			if( have_posts()):

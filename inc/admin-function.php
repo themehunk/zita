@@ -448,7 +448,7 @@ $class_original='original-social-icon';
 }else{
 $class_original='';	
 }
-$social.='<ul class="social-icon ' .esc_attr($class_original). ' ">';
+$social.='<ul class="social-icon ' .esc_attr($class_original). ' ">'.zita_display_customizer_shortcut('zita-social-icon');
 if($f_link = get_theme_mod('social_link_facebook','#')) :
 	$social.='<li><a target="_blank" href="'.esc_url($f_link).'" aria-label="facebook"><i class="fa fa-facebook"></i></a></li>';
 endif;
@@ -559,4 +559,30 @@ add_filter( 'zita_get_sidebar', 'zita_bbpress_sidebar' );
 //custom function conditional check for blog page
 function zita_is_blog(){
     return ( is_archive() || is_author() || is_category() || is_home() || is_tag()) && 'post' == get_post_type();
+}
+
+function zita_display_color_customizer_shortcut( $class_name ){
+  if ( ! is_customize_preview() ) {
+    return;
+  }
+  
+  echo'<span class="open-focus-color-section customize-partial-edit-shortcut customize-partial-edit-shortcut-' . esc_attr( $class_name ) . '">
+            <button class="customize-partial-edit-shortcut-button">
+                <span class="dashicons dashicons-admin-customizer"></span>
+            </button>
+        </span>';
+}
+
+function zita_display_customizer_shortcut( $class_name ){
+	if ( ! is_customize_preview() ) {
+		return;
+	}
+	$icon = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+            <path d="M13.89 3.39l2.71 2.72c.46.46.42 1.24.03 1.64l-8.01 8.02-5.56 1.16 1.16-5.58s7.6-7.63 7.99-8.03c.39-.39 1.22-.39 1.68.07zm-2.73 2.79l-5.59 5.61 1.11 1.11 5.54-5.65zm-2.97 8.23l5.58-5.6-1.07-1.08-5.59 5.6z"></path>
+        </svg>';
+	echo'<span class="open-focus-section customize-partial-edit-shortcut customize-partial-edit-shortcut-' . esc_attr( $class_name ) . '">
+            <button class="customize-partial-edit-shortcut-button">
+                ' . $icon . '
+            </button>
+        </span>';
 }

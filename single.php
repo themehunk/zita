@@ -13,6 +13,7 @@ $page_content_post_meta_set = get_post_meta( $post->ID, 'zita_content_dyn', true
 <div id="content" class="site-content blog-single <?php echo esc_attr(zita_page_content_layout($page_content_post_meta_set,'')); ?>">
   <div id="container" class="site-container <?php echo esc_attr(zita_sidebar_layout($page_post_meta_set,''));?>">
 	<div id="primary" class="main content-area">
+		<?php zita_display_customizer_shortcut('zita-blog-single'); ?>
 		<main id="main" class="site-main" role="main">
 		<?php
 		    while ( have_posts() ) : the_post();

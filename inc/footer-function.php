@@ -180,6 +180,7 @@ $zita_bottom_footer_col3_set= get_theme_mod( 'zita_bottom_footer_col3_set','text
 		 	<div class="bottom-footer-bar <?php echo esc_attr($zita_bottom_footer_layout);?>">
 		       <div class="container">
 			      <div class="bottom-footer-container">
+              <?php zita_display_customizer_shortcut('zita-bottom-footer'); ?>
               <?php if($zita_bottom_footer_layout=='ft-btm-one'):?>  
                  <div class="bottom-footer-col1">
                   <?php zita_bottom_footer_conetnt_col1($zita_bottom_footer_col1_set); ?>
@@ -382,6 +383,7 @@ $any_footer_widget_active = is_active_sidebar('footer-1')
 		 	<div class="widget-footer-bar <?php echo esc_attr($zita_bottom_footer_widget_layout);?>">
 		       <div class="container">
 			      <div class="widget-footer-container">
+              <?php zita_display_customizer_shortcut('zita-widget-footer'); ?>
 			      	<?php if($zita_bottom_footer_widget_layout=='ft-wgt-one'):?>
 		             <div class="widget-footer-col1">
 		             	<?php if( is_active_sidebar('footer-1' ) ){
