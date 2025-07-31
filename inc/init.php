@@ -34,6 +34,7 @@ get_template_part('customizer/customizer-range-value/class/class-zita-customizer
 get_template_part('customizer/color/class-control-color');
 get_template_part('customizer/customize-buttonset/class-control-buttonset');
 get_template_part('customizer/sortable/class-zita-control-sortable');
+require_once ZITA_THEME_DIR . 'customizer/customize-focus-section/zita-focus-section.php';
 get_template_part('customizer/custom-customizer');
 get_template_part('customizer/customizer');
 //custom-style

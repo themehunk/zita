@@ -131,6 +131,7 @@ $zitapro_menu_effect = get_theme_mod( 'zitapro_menu_effect','linkeffect-none');
 	     	<div class="main-header-bar two">
 	     		<div class="container">
 	     			<div class="main-header-container">
+                        <?php zita_display_customizer_shortcut('zita-main-header'); ?>
            <?php if($zita_main_header_layout!=='mhdrrightpan' && $zita_main_header_layout!=='mhdrleftpan' && $zita_main_header_layout!=='mhdminbarleft' && $zita_main_header_layout!=='mhdminbarright' && $zita_main_header_layout!=='mhdminbarbtm'):?>
 		                <div class="main-header-col1">
 		                     <?php zita_logo();?>
