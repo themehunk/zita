@@ -68,7 +68,8 @@ if ((is_single() || is_page()) || ((class_exists( 'WooCommerce' ))&&(is_woocomme
 <?php endif;?>
 <?php zita_preloader();?>
 <div id="page" class="zita-site">
-<header class="<?php echo esc_attr($zita_main_header_layout);?>  <?php if(function_exists('zita_sticky_above_header_class')){
+<?php do_action( 'zita_before_header' ); ?>
+<header class="zita-site-header <?php echo esc_attr($zita_main_header_layout);?>  <?php if(function_exists('zita_sticky_above_header_class')){
 	echo esc_attr(zita_sticky_above_header_class($zita_sticky_header_dyn));
 }?> <?php if(function_exists('zita_sticky_main_header_class')){
 	echo esc_attr(zita_sticky_main_header_class($zita_sticky_header_dyn));
@@ -110,7 +111,7 @@ if ((is_single() || is_page()) || ((class_exists( 'WooCommerce' ))&&(is_woocomme
 	</div>	
 	<?php } ?>
 </header>
-
+<?php do_action( 'zita_after_header' ); ?>
 <?php
 //Page Header 
 if ( isset($post->ID) ) {

@@ -70,7 +70,8 @@ Yes, this theme is tested with latest version of WordPress, you can use it for y
 == Changelog ==
 
 = 1.6.8 =
-Update: Customizer Focus added.
+* Update: Customizer Focus added.
+* Update: zita_before_header, zita_after_header, zita_before_footer, zita_after_footer added.
 
 = 1.6.7 =
 Update: Widget Footer display condition added.
