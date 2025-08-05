@@ -5259,6 +5259,7 @@ line-height: 1.2;
 .woocommerce div.product form.cart{
 margin-bottom:20px;
 margin-top: 20px;
+display: flex;
 }
 .woocommerce .zita-single-product-content-center .products .star-rating{
       display: inline-flex;
