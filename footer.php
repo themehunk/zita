@@ -17,7 +17,8 @@ $zita_disable_footer_widget_dyn ='';
 $zita_disable_bottom_footer_dyn ='';
 }
 ?>
-<footer id="zita-footer">
+<?php do_action( 'zita_before_footer' ); ?>
+<footer id="zita-footer" class="zita-site-footer">
 	
 	<div class="footer-wrap widget-area">
 	<?php 
@@ -33,6 +34,7 @@ $zita_disable_bottom_footer_dyn ='';
 </div>
 <?php } ?>
 </footer>
+<?php do_action( 'zita_after_footer' ); ?>
 <?php wp_footer(); ?>
 </body>
 </html>

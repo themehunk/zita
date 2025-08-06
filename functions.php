@@ -11,7 +11,7 @@
  * Theme functions and definitions
  */
 if ( ! function_exists( 'zita_setup' ) ) :
-define( 'ZITA_THEME_VERSION','1.6.6');
+define( 'ZITA_THEME_VERSION','1.6.8');
 define( 'ZITA_THEME_DIR', get_template_directory() . '/' );
 define( 'ZITA_THEME_URI', get_template_directory_uri() . '/' );
 define( 'ZITA_THEME_SETTINGS', 'zita-settings' );
@@ -165,6 +165,17 @@ define( 'ZITA_THEME_SETTINGS', 'zita-settings' );
 								 'docs'=>esc_url('https://themehunk.com/docs/th-variation-swatches-plugin/'),
 								)
 		),
+		   	'th-wishlist' => array(
+			   'name' => esc_html__( 'TH Wishlist', 'zita' ),
+			   'img' => 'icon-128x128.gif',
+			   'pro_link' => esc_url(''),
+			   'active_filename' => 'th-wishlist/th-wishlist.php',
+			   'pro-plugin' => array('slug'=>'vayu-blocks',
+								   'init'=>'th-wishlist/th-wishlist.php',
+								   'admin_link'=>'vayu-blocks',
+								   'docs'=>esc_url('https://themehunk.com/docs/th-wishlist/'),
+								   )
+		   ),
 		   'wp-popup-builder' => array(
 			   'name' => esc_html__( 'WP Popup Builder – Popup Forms & Newsletter', 'zita' ),
 			   'img' => 'icon-128x128.png',
