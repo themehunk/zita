@@ -10,6 +10,40 @@
 /**
  * Function to get above footer
  */
+function zita_full_footer_markup() {
+    // Get dynamic values directly
+ if ( is_single() || is_page() ){
+$zita_disable_above_footer_dyn  = get_post_meta( get_the_ID(), 'zita_disable_above_footer_dyn', true );
+$zita_disable_footer_widget_dyn = get_post_meta( get_the_ID(), 'zita_disable_footer_widget_dyn', true ); 
+$zita_disable_bottom_footer_dyn = get_post_meta( get_the_ID(), 'zita_disable_bottom_footer_dyn', true ); 
+}else{
+$zita_disable_above_footer_dyn  ='';
+$zita_disable_footer_widget_dyn ='';
+$zita_disable_bottom_footer_dyn ='';
+}
+
+    ?>
+     <footer id="zita-footer" class="zita-site-footer">
+      
+      <div class="footer-wrap widget-area">
+      <?php 
+        zita_footer_abv_post_meta($zita_disable_above_footer_dyn);
+        zita_footer_widget_post_meta($zita_disable_footer_widget_dyn);
+          zita_footer_bottom_post_meta($zita_disable_bottom_footer_dyn);
+      ?>
+      </div>
+      <?php if(get_theme_mod('zita_stick_footer_active')==true){ ?>
+    <div class="footer-sticky-icon">
+      <span class="footer-icon">
+      </span>
+    </div>
+    <?php } ?>
+    </footer>
+    <?php
+}
+
+// Hook the custom footer function into 'zita_footer'
+add_action('zita_footer', 'zita_full_footer_markup');
 if ( ! function_exists( 'zita_top_footer_markup' ) ){	
 function zita_top_footer_markup(){ ?>
 <?php 

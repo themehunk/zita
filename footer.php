@@ -7,33 +7,11 @@
  * @package Zita
  * @since 1.0.0
  */ 
-if ( is_single() || is_page() ){
-$zita_disable_above_footer_dyn  = get_post_meta( $post->ID, 'zita_disable_above_footer_dyn', true );
-$zita_disable_footer_widget_dyn = get_post_meta( $post->ID, 'zita_disable_footer_widget_dyn', true ); 
-$zita_disable_bottom_footer_dyn = get_post_meta( $post->ID, 'zita_disable_bottom_footer_dyn', true ); 
-}else{
-$zita_disable_above_footer_dyn  ='';
-$zita_disable_footer_widget_dyn ='';
-$zita_disable_bottom_footer_dyn ='';
-}
+
 ?>
 <?php do_action( 'zita_before_footer' ); ?>
-<footer id="zita-footer" class="zita-site-footer">
-	
-	<div class="footer-wrap widget-area">
-	<?php 
-		zita_footer_abv_post_meta($zita_disable_above_footer_dyn);
-		zita_footer_widget_post_meta($zita_disable_footer_widget_dyn);
-	    zita_footer_bottom_post_meta($zita_disable_bottom_footer_dyn);
-	?>
-	</div>
-	<?php if(get_theme_mod('zita_stick_footer_active')==true){ ?>
-<div class="footer-sticky-icon">
-	<span class="footer-icon">
-	</span>
-</div>
-<?php } ?>
-</footer>
+<!-- Main Footer (rendered via hook) -->
+<?php do_action( 'zita_footer' ); ?> <!-- Footer content injected via hook -->
 <?php do_action( 'zita_after_footer' ); ?>
 <?php wp_footer(); ?>
 </body>

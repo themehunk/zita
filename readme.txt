@@ -71,7 +71,18 @@ Yes, this theme is tested with latest version of WordPress, you can use it for y
 
 = 1.6.8 =
 * Update: Customizer Focus added.
-* Update: zita_before_header, zita_after_header, zita_before_footer, zita_after_footer added.
+* Update: Header implementation through hooks using do_action( 'zita_header' );
+* Update: Footer implementation through hooks using do_action( 'zita_footer' );
+* Update: zita_header_body_classes added as new function to add class to the body tag.
+* Update: input hidden element removed and its working aded through using localize zita_ajaxurl.
+* Update:
+1. TH COMPARE INETEGRATED.
+2. Style Improved
+3. Tested with latest PHP 8.3 / 8.4.
+4. Tested with wordpress 6.8.
+5. No open code present (__load_text_domain error)
+6. TH Wishlist added in Option Panel.
+7. Hooks added at after & before of haeder and footer also class added in these tags.
 
 = 1.6.7 =
 Update: Widget Footer display condition added.
