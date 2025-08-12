@@ -7,6 +7,96 @@
  * @copyright   Copyright (c) 2018, Zita
  * @since       Zita 1.0.0
  */
+function zita_header_body_classes() {
+    $classes = [];
+
+    $classes[] = esc_attr( get_theme_mod('zita_default_container', 'boxed') );
+    $classes[] = esc_attr( get_theme_mod('zita_main_header_layout', 'mhdrleft') );
+    $classes[] = esc_attr( get_theme_mod('zita_above_header_layout', 'abv-two') );
+    $classes[] = esc_attr( get_theme_mod('zita_container_site_layout', 'fullwidth') );
+
+    /**
+     * Allow developers to filter body classes added by the theme
+     */
+    return apply_filters( 'zita_custom_body_classes', $classes );
+}
+
+
+function zita_full_header_markup() { 
+    $zita_default_container    = get_theme_mod('zita_default_container','boxed');
+$zita_main_header_layout   = get_theme_mod('zita_main_header_layout','mhdrleft');
+$zita_above_header_layout  = get_theme_mod('zita_above_header_layout','abv-two');
+$zita_bottom_header_layout = get_theme_mod('zita_bottom_header_layout','abv-two');
+// add-pro-feature
+$zita_container_site_layout = get_theme_mod('zita_container_site_layout','fullwidth');
+// page post meta
+if ((is_single() || is_page()) || ((class_exists( 'WooCommerce' ))&&(is_woocommerce() || is_checkout() || is_cart() || is_account_page()))
+ ){
+ $postid = (is_shop()) ? get_option('woocommerce_shop_page_id') : get_the_ID();
+              $zita_transparent_header_dyn = get_post_meta($postid, 'zita_transparent_header_dyn', true );
+              $zita_disable_main_header_dyn = get_post_meta($postid, 'zita_disable_main_header_dyn', true );
+              $zita_disable_above_header_dyn = get_post_meta($postid, 'zita_disable_above_header_dyn', true );
+              $zita_disable_bottom_header_dyn = get_post_meta($postid, 'zita_disable_bottom_header_dyn', true );
+              if(is_search() || is_404()){
+                     $zita_sticky_header_dyn='';
+               }else{
+                     $zita_sticky_header_dyn = get_post_meta($postid, 'zita_sticky_header_dyn', true );
+                   }
+     }else{
+      $zita_disable_above_header_dyn='';    
+      $zita_disable_main_header_dyn='';
+      $zita_disable_bottom_header_dyn='';
+      $zita_transparent_header_dyn='';
+      $zita_sticky_header_dyn='';
+     } 
+     ?>
+    <header class="zita-site-header <?php echo esc_attr($zita_main_header_layout);?>  <?php if(function_exists('zita_sticky_above_header_class')){
+    echo esc_attr(zita_sticky_above_header_class($zita_sticky_header_dyn));
+}?> <?php if(function_exists('zita_sticky_main_header_class')){
+    echo esc_attr(zita_sticky_main_header_class($zita_sticky_header_dyn));
+}?> <?php if(function_exists('zita_sticky_bottom_header_class')){
+    echo esc_attr(zita_sticky_bottom_header_class($zita_sticky_header_dyn));
+}?> <?php if(function_exists('zita_stick_animation_class')){ echo esc_attr(zita_stick_animation_class());} ?> <?php echo esc_attr(zita_header_transparent_class($zita_transparent_header_dyn));?>">
+<a class="skip-link screen-reader-text" href="#content" aria-label="Skip Content"><?php esc_html_e( 'Skip to content', 'zita' ); ?></a>
+    <?php if($zita_main_header_layout=='mhdrrightpan' || $zita_main_header_layout=='mhdrleftpan'):?>
+        <div class="header-pan-icon">
+        <span class="pan-icon">
+        </span>
+        </div>
+        <div class="pan-content">
+        <div class="container">
+        <?php zita_logo();?>
+        </div>
+    <?php endif;?>
+    <!-- minbar header -->
+    <?php if($zita_main_header_layout=='mhdminbarleft' || $zita_main_header_layout=='mhdminbarright' ){?>
+    <?php zita_minbar_header_markup();?>
+    <div class="pan-content">   
+    <?php } 
+    if($zita_main_header_layout=='mhdminbarbtm'){
+        zita_bottombar_header_markup();?>
+   <div class="pan-content">    
+    <?php }
+        ?>
+    <!-- end minbar header -->
+    <!-- top-header start -->
+    <?php 
+    zita_header_abv_post_meta($zita_disable_above_header_dyn);
+    zita_header_main_post_meta($zita_disable_main_header_dyn);
+    zita_header_btm_post_meta($zita_disable_bottom_header_dyn); ?>
+    <!-- bottom-header end-->
+    <?php if($zita_main_header_layout=='mhdrrightpan' || $zita_main_header_layout=='mhdrleftpan'):?>
+    </div>
+    <?php endif;?>
+    <?php if($zita_main_header_layout=='mhdminbarleft'  || $zita_main_header_layout=='mhdminbarright' || $zita_main_header_layout=='mhdminbarbtm'){?>
+    </div>  
+    <?php } ?>
+</header>
+<?php }
+
+// Hook the custom header function into 'zita_header'
+add_action('zita_header', 'zita_full_header_markup');
+
 /***************************/
 // LEFTMINBAR HEADERLAYOUT
 /***************************/

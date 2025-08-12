@@ -292,7 +292,8 @@ if( jQuery('.zta-masnory').length > 0 ){
 /**************************************************/
 // Show-hide Scroll to top & move-to-top arrow
 /**************************************************/
-if(jQuery("#back-to-top").val()=='on'){
+const $backtotop = jQuery("#back-to-top");
+if ($backtotop.length && $backtotop.val() === 'on') 
   jQuery("body").prepend("<a id='move-to-top' class='animate' href='#'><i class='fa fa-angle-up'></i></a>"); 
   var scrollDes = 'html,body';  
   /*Opera does a strange thing if we use 'html' and 'body' together so my solution is to do the UA sniffing thing*/
@@ -354,7 +355,8 @@ jQuery('body').removeClass('cart-pan-active');
 //Header sticky
 /**************************************************/
 if(jQuery("header.zta-above-stick-hdr").length!=''||jQuery("header.zta-main-stick-hdr").length!=''||jQuery("header.zta-bottom-stick-hdr").length!=''){
-if(jQuery("#header-scroll-down-hide").val()=='on'){
+const $el = jQuery("#header-scroll-down-hide");
+if ($el.length && $el.val() === 'on') {
   var position = jQuery(window).scrollTop(); 
   var $headerBar = jQuery('header').height();
   var $mainheader = jQuery('header.zta-main-stick-hdr .main-header').height(); 
