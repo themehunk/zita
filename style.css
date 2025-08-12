@@ -4739,7 +4739,7 @@ border-color: #015782;
     color:#fff;
   }
 .woocommerce div.product form.cart .button {
-    padding: 15px 30px;
+    padding: 12px 30px;
 }
 /*on sale badges*/
 .woocommerce ul.products li.product .onsale,.woocommerce span.onsale{
@@ -5260,6 +5260,7 @@ line-height: 1.2;
 margin-bottom:20px;
 margin-top: 20px;
 display: flex;
+flex-wrap: wrap;
 }
 .woocommerce .zita-single-product-content-center .products .star-rating{
       display: inline-flex;
@@ -6507,6 +6508,21 @@ display: contents;
 }
 }
 @media screen and (max-width:767px){
+  .woocommerce div.product form.cart .button{
+    padding: 12px 20px;
+  }
+  .zita-quantity{
+    margin-right: 12px;
+  }
+  .thw-add-to-wishlist-button-wrap.th-wishlist-single{
+    margin-top: 15px;
+  }
+  .woocommerce div.product form.cart{
+    margin-bottom: 0;
+  }
+  .summary .thw-add-to-wishlist-button .thw-icon{
+    margin-left: 0;
+  }
 img.alignright, div.alignright, figure.alignright, img.alignleft, div.alignleft, figure.alignleft, img.wp-post-image.attachment-thumb {display:block; margin:1em auto; float:none;}
 .gallery.gallery-columns-4 figure, .gallery.gallery-columns-5 figure, .gallery.gallery-columns-6 figure, .gallery.gallery-columns-7 figure, .gallery.gallery-columns-8 figure, .gallery.gallery-columns-9 figure {width:100%; margin:0 0 1em 0; float:none;}
 .site-content #primary {
