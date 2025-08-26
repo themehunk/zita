@@ -6367,6 +6367,9 @@ width:100px;
 li .thw-add-to-wishlist-button-wrap{
   justify-content: left;
 }
+.thw-add-to-wishlist-button-wrap.th-wishlist-single .thw-icon{
+  margin-left: 0;
+}
 /*=====================
 *  TH PRODUCT COMPARE
 =======================*/
