@@ -32,7 +32,13 @@ $zita_container_site_layout = get_theme_mod('zita_container_site_layout','fullwi
 // page post meta
 if ((is_single() || is_page()) || ((class_exists( 'WooCommerce' ))&&(is_woocommerce() || is_checkout() || is_cart() || is_account_page()))
  ){
- $postid = (is_shop()) ? get_option('woocommerce_shop_page_id') : get_the_ID();
+    $postid = '';
+    if ( function_exists( 'is_shop' ) ) {
+        $postid = (is_shop()) ? get_option('woocommerce_shop_page_id') : get_the_ID();
+    } else {
+        // Handle the case where WooCommerce is not available
+        $postid = get_the_ID(); // Or some fallback logic
+    }
               $zita_transparent_header_dyn = get_post_meta($postid, 'zita_transparent_header_dyn', true );
               $zita_disable_main_header_dyn = get_post_meta($postid, 'zita_disable_main_header_dyn', true );
               $zita_disable_above_header_dyn = get_post_meta($postid, 'zita_disable_above_header_dyn', true );
