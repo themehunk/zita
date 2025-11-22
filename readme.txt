@@ -3,7 +3,7 @@ Contributors: ThemeHunk
 Tags: two-columns, right-sidebar, block-patterns, custom-menu, custom-background, editor-style, translation-ready, full-width-template, flexible-header, sticky-post, theme-options, one-column, e-commerce, blog, photography, threaded-comments, custom-colors
 Requires at least: 5.0
 Tested up to: 6.8
-Stable tag: 1.6.9
+Stable tag: 1.6.10
 License: GPLv3 or later
 License URL: https://www.gnu.org/licenses/gpl-3.0.en.html
 
@@ -69,8 +69,12 @@ Yes, this theme is tested with latest version of WordPress, you can use it for y
 
 == Changelog ==
 
+= 1.6.10 =
+* Update: is_shop exits condition added.
+
 = 1.6.9 =
 * Update: Theme updated.
+* Update: is_shop exits condition added.
 
 = 1.6.8 =
 * Update: Customizer Focus added.
