@@ -293,7 +293,7 @@ if( jQuery('.zta-masnory').length > 0 ){
 // Show-hide Scroll to top & move-to-top arrow
 /**************************************************/
 const $backtotop = jQuery("#back-to-top");
-if ($backtotop.length && $backtotop.val() === 'on') 
+if ($backtotop.length && $backtotop.val() === 'on'){
   jQuery("body").prepend("<a id='move-to-top' class='animate' href='#'><i class='fa fa-angle-up'></i></a>"); 
   var scrollDes = 'html,body';  
   /*Opera does a strange thing if we use 'html' and 'body' together so my solution is to do the UA sniffing thing*/
