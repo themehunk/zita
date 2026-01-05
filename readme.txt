@@ -3,7 +3,7 @@ Contributors: ThemeHunk
 Tags: two-columns, right-sidebar, block-patterns, custom-menu, custom-background, editor-style, translation-ready, full-width-template, flexible-header, sticky-post, theme-options, one-column, e-commerce, blog, photography, threaded-comments, custom-colors
 Requires at least: 5.0
 Tested up to: 6.9
-Stable tag: 1.6.12
+Stable tag: 1.7
 License: GPLv3 or later
 License URL: https://www.gnu.org/licenses/gpl-3.0.en.html
 
@@ -69,7 +69,7 @@ Yes, this theme is tested with latest version of WordPress, you can use it for y
 
 == Changelog ==
 
-= 1.6.12 =
+= 1.7 =
 * Update: Remove current-menu-item class from menu items with # links using add_filter('nav_menu_css_class', function ($classes, $item) {})
 
 = 1.6.11 =
