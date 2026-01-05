@@ -11,7 +11,7 @@
  * Theme functions and definitions
  */
 if ( ! function_exists( 'zita_setup' ) ) :
-define( 'ZITA_THEME_VERSION','1.6.9');
+define( 'ZITA_THEME_VERSION','1.7');
 define( 'ZITA_THEME_DIR', get_template_directory() . '/' );
 define( 'ZITA_THEME_URI', get_template_directory_uri() . '/' );
 define( 'ZITA_THEME_SETTINGS', 'zita-settings' );
