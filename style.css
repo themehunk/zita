@@ -6395,6 +6395,11 @@ li .thw-add-to-wishlist-button-wrap{
 .products .th-theme-actions-wrapper{
   justify-content: flex-start;
 }
+.single-product  .summary .woocommerce-variation-add-to-cart{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
 @media screen and (max-width:1024px){
 .pan-content::-webkit-scrollbar-thumb{
 visibility:visible;
@@ -6543,10 +6548,19 @@ display: contents;
   .summary .thw-add-to-wishlist-button .thw-icon{
     margin-left: 0;
   }
-  div.th-theme-actions-wrapper .thw-add-to-wishlist-button, 
-  div.th-theme-actions-wrapper .th-product-compare-btn.btn_type, 
-  div.th-theme-actions-wrapper .th-product-compare-btn.icon_type{
-    font-size: 11px!important;
+  ul li .thw-add-to-wishlist-button .thw-to-add-text,
+  ul li .thw-add-to-wishlist-button .thw-to-browse-text,
+  ul li .th-product-compare-btn .text{
+    display: none!important;
+  }
+  .products .th-theme-actions-wrapper{
+    justify-content: center;
+  }
+  .th-theme-actions-wrapper .thw-add-to-wishlist-button, .th-theme-actions-wrapper .th-product-compare-btn.btn_type, .th-theme-actions-wrapper .th-product-compare-btn.icon_type{
+    gap: 2px!important;
+  }
+  .woocommerce div.product form.cart .button{
+    width: 144px;
   }
 img.alignright, div.alignright, figure.alignright, img.alignleft, div.alignleft, figure.alignleft, img.wp-post-image.attachment-thumb {display:block; margin:1em auto; float:none;}
 .gallery.gallery-columns-4 figure, .gallery.gallery-columns-5 figure, .gallery.gallery-columns-6 figure, .gallery.gallery-columns-7 figure, .gallery.gallery-columns-8 figure, .gallery.gallery-columns-9 figure {width:100%; margin:0 0 1em 0; float:none;}

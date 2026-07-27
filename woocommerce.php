@@ -26,7 +26,7 @@ $page_content_post_meta_set = get_post_meta( $postid, 'zita_content_dyn', true )
 		    </article>
 		</main>
 	</div>
-	<?php if(zita_sidebar_layout($page_woo_post_meta_set,'')!=='no-sidebar'): get_sidebar(); endif; ?>
+	
   </div>
 </div>
 <?php get_footer();
