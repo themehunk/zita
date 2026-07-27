@@ -3,7 +3,7 @@ Contributors: ThemeHunk
 Tags: two-columns, right-sidebar, block-patterns, custom-menu, custom-background, editor-style, translation-ready, full-width-template, flexible-header, sticky-post, theme-options, one-column, e-commerce, blog, photography, threaded-comments, custom-colors
 Requires at least: 5.0
 Tested up to: 7.0
-Stable tag: 1.7.0
+Stable tag: 1.7.1
 License: GPLv3 or later
 License URL: https://www.gnu.org/licenses/gpl-3.0.en.html
 
@@ -69,7 +69,7 @@ Yes, this theme is tested with latest version of WordPress, you can use it for y
 
 == Changelog ==
 
-= 1.7.0 =
+= 1.7.1 =
 * Update: Theme tested with WordPress 7.0.
 * Update: Style Improved.
 
