@@ -6,8 +6,8 @@ add_action( 'admin_enqueue_scripts', array($this,'admin_scripts'));
 add_action('admin_menu', array($this,'menu_tab'));
 
     // AJAX.
-    add_action( 'wp_ajax_th_activeplugin',array($this,'th_activeplugin') );
-    add_action( 'wp_ajax_default_home',array($this, 'default_home') );
+    add_action( 'wp_ajax_th_activeplugin',array($this,'th_activeplugin_install') );
+    add_action( 'wp_ajax_default_home',array($this, 'th_default_home') );
 }
 function menu_tab() {
     $menu_title = esc_html__('Zita Options', 'zita');
@@ -67,7 +67,7 @@ function tab_page() {
 
 // Home Page Setup
 
-function default_home() {
+function th_default_home() {
 
 if ( ! current_user_can( 'administrator' ) ) {
 
@@ -123,7 +123,7 @@ function _check_homepage_setup(){
           * Active plugin
           * Setup Homepage
           */
-        public function th_activeplugin(){
+        public function th_activeplugin_install(){
 
             if ( ! current_user_can( 'administrator' ) ) {
 

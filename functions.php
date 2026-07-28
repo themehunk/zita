@@ -97,6 +97,18 @@ define( 'ZITA_THEME_SETTINGS', 'zita-settings' );
 					 'pro_link' => '',
 					'active_filename' => 'zita-site-library/zita-site-library.php',
 				),
+			'th-store-one' => array(
+			   'name' => esc_html__( 'TH Store One', 'zita' ),
+			   'img' => 'icon-128x128.png',
+			   'pro_link' => esc_url('https://themehunk.com/advance-product-search/'),
+			   'active_filename' => 'th-store-one/th-store-one.php',
+			   'pro-plugin' => array('slug'=>'store-one-pro',
+								   'init'=>'store-one-pro/store-one-pro.php',
+									'admin_link'=>'store-one-pro',
+									'docs'=>esc_url('https://themehunk.com/docs/store-one/'),
+
+								   )
+		   ),
 			'vayu-blocks' => array(
 			   'name' => esc_html__( 'Vayu Blocks – Gutenberg Blocks for WordPress & WooCommerce', 'zita' ),
 			   'img' => 'icon-128x128.png',
@@ -145,7 +157,7 @@ define( 'ZITA_THEME_SETTINGS', 'zita-settings' );
 		   ),
 		   'lead-form-builder' => array(
 			   'name' => esc_html__( 'Lead Form Builder', 'zita' ),
-			   'img' => 'icon-128x128.png',
+			   'img' => 'icon-128x128.gif',
 			   'pro_link' => esc_url('https://themehunk.com/product/lead-form-builder-pro/'),
 			   'active_filename' => 'lead-form-builder/lead-form-builder.php',
 			   'pro-plugin' => array('slug'=>'lead-form-builder',

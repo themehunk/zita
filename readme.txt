@@ -78,6 +78,7 @@ Yes, this theme is tested with latest version of WordPress, you can use it for y
 
 = 1.6.11 =
 * Update: Zita-custom.js syntax error resolved.
+* Update: Store One Added in recommended plugins.
 
 = 1.6.10 =
 * Update: is_shop exits condition added.
